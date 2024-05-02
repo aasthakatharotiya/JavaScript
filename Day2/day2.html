@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        color: blue;
+    }
+    h2{
+        border: 2px solid;
+        width: fit-content;
+        padding: 10px;
+    }
+</style>
+<body>
+    <!-- Question-1 -->
+    <h1>----Addition----</h1>
+    <h3>Enter First Value : <input type="text" id="int1"></h3>
+
+    <h3>Enter Second Value : <input type="text" id="int2"></h3>
+    
+    <h2 id="ans1"></h2>
+
+    <!-- Question-2 -->
+    <h1>----Multiplication----</h1>
+    <h3>Enter First Value : <input type="text" id="int3"></h3>
+    
+    <h3>Enter Second Value : <input type="text" id="int4"></h3>
+
+    <h2 id="ans2"></h2>
+</body>
+</html>
+<script>
+    //***----Arithmetic Operator---***
+
+    //Question-1
+    let a = document.getElementById("int1").value
+    let b = document.getElementById("int2").value
+    let c = +a + +b
+    document.getElementById("ans1").innerHTML = c
+
+    //Question-2
+    let d = document.getElementById("int3").value
+    let e = document.getElementById("int4").value
+    let f = +d * +e
+    document.getElementById("ans2").innerHTML = f
+
+    //***----Comparison Operator---***
+
+    //Question-3
+    var com1 = 10
+    var com2 = 10
+    console.log(com1 == com2)
+
+    //Question-4
+    var com3 = 10
+    var com4 = 10
+    console.log(com3 > com4)
+
+    //***----Logical Operator---***
+
+    //Question-5
+    var opp1 = 10
+    var opp2 = 3
+    var opp3 = 10
+    var opp4 = 8
+    console.log(opp1 > opp2 && opp3 < opp4)
+    console.log(opp1 > opp2 && opp3 > opp4)
+
+    //Question-6
+    var opp5 = 10
+    var opp6 = 3
+    var opp7 = 10
+    var opp8 = 8
+    console.log(opp5 > opp6 || opp7 < opp8)
+
+    //***----Assignment Operator---***
+
+    //Question-7
+    let inc1 = 8
+    inc1++
+    console.log(inc1)
+
+    //Question-8
+    let inc2=0
+    inc2 += 90
+    console.log(inc2)
+
+    //Question-9
+    let sub=50
+    sub -= 5
+    console.log(sub)
+
+</script>
