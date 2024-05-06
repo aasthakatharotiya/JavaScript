@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #ans1,
+    #ans2,
+    #ans3{
+        border: 2px solid;
+        width: fit-content;
+        padding: 5px;
+    }
+</style>
+<body>
+    <!-- Question-1 -->
+    <center>
+        <h1>----- Product Cost Calculation -----</h1>
+    </center>
+
+    <h3>
+        Enter Price Of Product :
+        <input type="text" id="int1">
+    </h3>
+    <h3>
+        Enter Quantity Of Product :
+        <input type="text" id="int2">
+    </h3>
+    <h2 id="ans1"></h2>
+    <hr><br>
+
+    <!-- Question-2 -->
+    <center>
+        <h1>----- Calculate BMI Of Person -----</h1>
+    </center>
+
+    <h3>
+        Enter Your Weight in Kilograms :
+        <input type="text" id="int3">
+    </h3>
+    <h3>
+        Enter Your Height in Meters :
+        <input type="text" id="int4">
+    </h3>
+    <h2 id="ans2"></h2>
+    <hr><br>
+
+    <!-- Question-3 -->
+    <center>
+        <h1>----- Calculate Of Speed And Time -----</h1>
+    </center>
+
+    <h3>
+        Enter The Distance Travelled in Meter :
+        <input type="text" id="int5">
+    </h3>
+    <h3>
+        Enter The Time Taken in Second :
+        <input type="text" id="int6">
+    </h3>
+    <h2 id="ans3"></h2>
+</body>
+</html>
+<script>
+    //Question-1
+
+    var price = document.getElementById("int1").value
+    var quantity = document.getElementById("int2").value
+    var total = +price * +quantity
+    document.getElementById("ans1").innerHTML = "Total Cost is : "+total
+
+
+    //Question-2
+
+    var weight = document.getElementById("int3").value
+    var height = document.getElementById("int4").value
+    var BMI = +weight / (+height * +height)
+    document.getElementById("ans2").innerHTML = "Your BMI is : "+BMI.toFixed(2)
+
+    //Question-3
+
+    var distance = document.getElementById("int5").value
+    var time = document.getElementById("int6").value
+    var speed = +distance / time
+    document.getElementById("ans3").innerHTML = "Speed is : "+speed+" m/s"
+
+</script>
