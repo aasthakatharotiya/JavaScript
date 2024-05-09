@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h2{
+        border: 2px solid;
+        padding: 5px;
+        width: fit-content;
+    }
+</style>
+<body>
+    <!-- Question-1 -->
+    <center>
+        <h1>------- Calculate Electricity Bill -------</h1>
+    </center>
+    <h3>
+        Enter The Number Of Units Consumed : 
+        <input type="text" id="int1">
+    </h3>
+    <h2 id="ans1"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-2 -->
+    <center>
+        <h1>------- Calculate Smallest Number -------</h1>
+    </center>
+    <h3>
+        Enter First Number : 
+        <input type="text" id="int2">
+    </h3>
+    <h3>
+        Enter Second Number : 
+        <input type="text" id="int3">
+    </h3>
+    <h3>
+        Enter Third Number : 
+        <input type="text" id="int4">
+    </h3>
+    <h3>
+        Enter Fourth Number : 
+        <input type="text" id="int5">
+    </h3>
+    <h2 id="ans2"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-3 -->
+    <center>
+        <h1>------- Calculate Largest Number -------</h1>
+    </center>
+    <h3>
+        Enter First Number : 
+        <input type="text" id="int6">
+    </h3>
+    <h3>
+        Enter Second Number : 
+        <input type="text" id="int7">
+    </h3>
+    <h3>
+        Enter Third Number : 
+        <input type="text" id="int8">
+    </h3>
+    <h3>
+        Enter Fourth Number : 
+        <input type="text" id="int9">
+    </h3>
+    <h3>
+        Enter Fifth Number : 
+        <input type="text" id="int10">
+    </h3>
+    <h2 id="ans3"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-4 -->
+    <center>
+        <h1>------- Positive, Negative And Zero -------</h1>
+    </center>
+    <h3>
+        Enter Any Number : 
+        <input type="text" id="int11">
+    </h3>
+    <h2 id="ans4"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-5 -->
+    <center>
+        <h1>------- Grading System -------</h1>
+    </center>
+    <h3>
+        Enter Student Score : 
+        <input type="text" id="int12">
+    </h3>
+    <h2 id="ans5"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-6 -->
+    <center>
+        <h1>------- Tax Calculator -------</h1>
+    </center>
+    <h3>
+        Enter Employee Salary : 
+        <input type="text" id="int13">
+    </h3>
+    <h2 id="ans6"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-7 -->
+    <center>
+        <h1>------- Swap Number -------</h1>
+    </center>
+    <h3>
+        Enter First Number : 
+        <input type="text" id="int14">
+    </h3>
+    <h3>
+        Enter Second Number : 
+        <input type="text" id="int15">
+    </h3>
+    <h3>
+        Enter Third Number : 
+        <input type="text" id="int16">
+    </h3>
+    <h2 id="ans7"></h2>
+    <h2 id="ans8"></h2>
+    <h2 id="ans9"></h2>
+
+</body>
+</html>
+<script>
+    //Question-1
+
+    let units = document.getElementById("int1").value
+    let bill = 0.0;
+    if(units === "")
+    {
+        document.getElementById("ans1").innerHTML = "Invalid Unit"
+    }
+    else
+    {
+        if(units < 0)
+        {
+            printf("Invalid input.\n");
+        }
+        else if(units > 0 && units <=100) 
+        {
+            bill = units * 1.0;
+        }
+        else if(units > 100 && units <=200)
+        {
+            bill = (100 * 1.0) + ((units - 100) * 2.0);
+        }
+        else
+        {
+            bill = (100 * 1.0) + (100 * 2.0) + ((units - 200) * 3.0);
+        }
+
+        document.getElementById("ans1").innerHTML = "Total Bill For "+units+" is : "+bill
+    }
+
+
+
+    //Question-2
+
+    let min1 = document.getElementById("int2").value
+    let min2 = document.getElementById("int3").value
+    let min3 = document.getElementById("int4").value
+    let min4 = document.getElementById("int5").value
+
+    if(min1 === "" && min2 === "" && min3 === "" && min4 === "")
+    {
+        document.getElementById("ans2").innerHTML = "Invalid Number's"
+    }
+    else
+    {
+        if(min1<min2 && min1<min3 && min1<min4)
+        {
+            document.getElementById("ans2").innerHTML = "'"+min1+"' First Number is Smallest..."
+        }
+        else if(min2<min1 && min2<min3 && min2<min4)
+        {
+            document.getElementById("ans2").innerHTML = "'"+min2+"' Second Number is Smallest..."
+        }
+        else if(min3<min1 && min3<min2 && min3<min4)
+        {
+            document.getElementById("ans2").innerHTML = "'"+min3+"' Third Number is Smallest..."
+        }
+        else
+        {
+            document.getElementById("ans2").innerHTML = "'"+min4+"' Fourth Number is Smallest..."
+        }
+    }
+
+
+
+    //Question-3
+
+    let max1 = document.getElementById("int6").value
+    let max2 = document.getElementById("int7").value
+    let max3 = document.getElementById("int8").value
+    let max4 = document.getElementById("int9").value
+    let max5 = document.getElementById("int10").value
+
+    if(max1 === "" && max2 === "" && max3 === "" && max4 === "" && max5 === "")
+    {
+        document.getElementById("ans3").innerHTML = "Invalid Number's"
+    }
+    else
+    {
+        if(max1>max2 && max1>max3 && max1>max4 && max1>max5)
+        {
+            document.getElementById("ans3").innerHTML = "'"+max1+"' First Number is Largest..."
+        }
+        else if(max2>max1 && max2>max3 && max2>max4 && max2>max5)
+        {
+            document.getElementById("ans3").innerHTML = "'"+max2+"' Second Number is Largest..."
+        }
+        else if(max3>max1 && max3>max2 && max3>max4 && max3>max5)
+        {
+            document.getElementById("ans3").innerHTML = "'"+max3+"' Third Number is Largest..."
+        }
+        else if(max4>max1 && max4>max2 && max4>max3 && max4>max5)
+        {
+            document.getElementById("ans3").innerHTML = "'"+max4+"' Fourth Number is Largest..."
+        }
+        else
+        {
+            document.getElementById("ans3").innerHTML = "'"+max5+"' Fifth Number is Largest..."
+        }
+    }
+    
+
+    //Question-4 
+
+    let num = document.getElementById("int11").value
+    if(num === "")
+    {
+        document.getElementById("ans4").innerHTML = "Invalid Number"
+    }
+    else
+    {
+        if(num > 0)
+        {
+            document.getElementById("ans4").innerHTML = "'"+num+"' is Positive Number..."
+        }
+        else if(num < 0)
+        {
+            document.getElementById("ans4").innerHTML = "'"+num+"' is Negative Number..."
+        }
+        else
+        {
+            document.getElementById("ans4").innerHTML = "Number is Zero..."
+        }
+    }
+
+
+    //Question-5
+
+    let score = document.getElementById("int12").value
+    if(score === "")
+    {
+        document.getElementById("ans5").innerHTML = "Invalid Score"
+    }
+    else
+    {
+        if(score>=90 && score<=100)
+        {
+            document.getElementById("ans5").innerHTML = "A Grade..."
+        }
+        else if(score>=80 && score<=89)
+        {
+            document.getElementById("ans5").innerHTML = "B Grade..."
+        }
+        else if(score>=70 && score<=79)
+        {
+            document.getElementById("ans5").innerHTML = "C Grade..."
+        }
+        else if(score>=60 && score<=69)
+        {
+            document.getElementById("ans5").innerHTML = "D Grade..."
+        }
+        else
+        {
+            document.getElementById("ans5").innerHTML = "FAIL..."
+        }
+        
+    }
+
+
+    //Question-6
+
+    let salary = document.getElementById("int13").value
+    let tax = 0;
+
+    if(salary === "")
+    {
+        document.getElementById("ans6").innerHTML = "Invalid Salary"
+    }
+    else
+    {
+        if(salary > 40000)
+        {
+            tax += (salary - 40000) * 0.25;
+            salary = 40000;
+        }
+        if(salary > 30000)
+        {
+            tax += (salary - 30000) * 0.20;
+            salary = 30000;
+        }
+        if(salary > 20000)
+        {
+            tax += (salary - 20000) * 0.15;
+            salary = 20000;
+        }
+        if(salary > 10000)
+        {
+            tax += (salary - 10000) * 0.10;
+            salary = 10000;
+        }
+        if(salary > 0)
+        {
+            tax += salary * 0.05;
+        }
+        document.getElementById("ans6").innerHTML = "The Tax For a Salary of "+salary+" is : "+tax.toFixed(2)
+    }
+
+
+
+    //Question-7
+
+    let swap1 = document.getElementById("int14").value
+    let swap2 = document.getElementById("int15").value
+    let swap3 = document.getElementById("int16").value
+
+    if(swap1 === "" && swap2 === "" && swap3 === "")
+    {
+        document.getElementById("ans7").innerHTML = "Invalid Number"
+    }
+    else
+    {
+        document.getElementById("ans7").innerHTML = "First Number is : "+swap2
+        document.getElementById("ans8").innerHTML = "Second Number is : "+swap3
+        document.getElementById("ans9").innerHTML = "Third Number is : "+swap1
+    }
+    
+
+</script>
