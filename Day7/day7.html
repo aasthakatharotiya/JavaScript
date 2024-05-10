@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h2{
+        border: 2px solid;
+        padding: 5px;
+        width: fit-content;
+    }
+</style>
+<body>
+    <!-- Question-1 -->
+    <center>
+        <h1>---------- Check Password ----------</h1>
+    </center>
+    <h3>
+        Enter Username : 
+        <input type="text" id="int1">
+    </h3>
+    <h3>
+        Enter Password : 
+        <input type="text" id="int2">
+    </h3>
+    <h2 id="ans1"></h2>
+    <br><hr><br>
+
+    <!-- Question-2 -->
+    <center>
+        <h1>---------- Types Of Triangle ----------</h1>
+    </center>
+    <h3>
+        Enter First Angle : 
+        <input type="text" id="int3">
+    </h3>
+    <h3>
+        Enter Second Angle : 
+        <input type="text" id="int4">
+    </h3>
+    <h3>
+        Enter Third Angle : 
+        <input type="text" id="int5">
+    </h3>
+    <h2 id="ans2"></h2>
+    <h2 id="ans3"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-3 -->
+    <center>
+        <h1>---------- Odd Or Even ----------</h1>
+    </center>
+    <h3>
+        Enter Any Number : 
+        <input type="text" id="int6">
+    </h3>
+    <h2 id="ans4"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-4 -->
+    <center>
+        <h1>---------- Age Calculation ----------</h1>
+    </center>
+    <h3>
+        Enter Your Age : 
+        <input type="text" id="int7">
+    </h3>
+    <h2 id="ans5"></h2>
+    <br><br>
+
+
+</body>
+</html>
+<script>
+    //Question-1
+
+    let store_pass = "aastha@123"
+    let enter_pass = document.getElementById("int2").value
+    if(enter_pass === "")
+    {
+        document.getElementById("ans1").innerHTML = "Invalid Password"
+    }
+    else
+    {
+        if(enter_pass === store_pass)
+        {
+            document.getElementById("ans1").innerHTML = "Login Successfully..."
+        }
+        else
+        {
+            document.getElementById("ans1").innerHTML = "Incorrect Password..."
+        }
+    }
+
+
+
+    //Question-2
+
+    let angle_1 = document.getElementById("int3").value
+    let angle_2 = document.getElementById("int4").value
+    let angle_3 = document.getElementById("int5").value
+
+    let triangle = +angle_1 + +angle_2 + +angle_3
+
+    if(angle_1 === "" && angle_2 === "" && angle_3 === "")
+    {
+        document.getElementById("ans3").innerHTML = "Invalid Angle's"
+    }
+    else
+    {
+        if(triangle === 180)
+        {
+            document.getElementById("ans2").innerHTML = "It's Triangle..."
+            if(angle_1 === angle_2 && angle_2 === angle_3 && angle_3 === angle_1)
+            {
+                document.getElementById("ans3").innerHTML = "Equilateral Triangle..."
+            }
+            else if(angle_1 === angle_2 || angle_2 === angle_3 || angle_3 === angle_1)
+            {
+                document.getElementById("ans3").innerHTML = "Isosceles Triangle..."
+            }
+            else
+            {
+                document.getElementById("ans3").innerHTML = "Scalene Triangle..."
+            }
+        }
+        else
+        {
+            document.getElementById("ans2").innerHTML = "It's Not Triangle..."
+        }
+    }
+
+
+
+    //Question-3
+
+    let num = document.getElementById("int6").value
+
+    if(num === "")
+    {
+        document.getElementById("ans4").innerHTML = "Invalid Number"
+    }
+    else
+    {
+        if(num % 2 == 0)
+        {
+            document.getElementById("ans4").innerHTML = "It's Even Number..."
+        }
+        else
+        {
+            document.getElementById("ans4").innerHTML = "It's Odd Number..."
+        }
+    }
+
+
+
+    //Question-4
+
+    let age = document.getElementById("int7").value
+
+    if(age === "")
+    {
+        document.getElementById("ans5").innerHTML = "Invalid Age"
+    }
+    else
+    {
+        if(age>0 && age<=10)
+        {
+            document.getElementById("ans5").innerHTML = "Your'e Child..."
+        }
+        if(age>10 && age<=20)
+        {
+            document.getElementById("ans5").innerHTML = "Your'e Teen..."
+        }
+        if(age>20 && age<=30)
+        {
+            document.getElementById("ans5").innerHTML = "Your'e Adult..."
+        }
+    }
+
+</script>
