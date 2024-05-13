@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<style>
+    h3{
+        font-size: 20px;
+    }
+    h2{
+        border: 2px solid;
+        padding: 5px;
+        width: fit-content;
+        font-size: 25px;
+        margin-top: 20px;
+    }
+    .form-select{
+        width: 30%;
+        border: 1px solid;
+        border-radius: 0%;
+    }
+    .flex{
+        display: flex;
+    }
+    .inc_dec{
+        border: 1px solid;
+        width: 3.5%;
+        font-size: 22px;
+    }
+    .inc_dec input{
+        width: 100%;
+        border: none;
+    }
+    #ans4{
+        color: blue;
+        border-bottom: 2px solid;
+    }
+</style>
+<body>
+    <!-- Question-1 -->
+    <center>
+        <h1>------------ Grade System ------------</h1>
+    </center>
+    <br>
+    <h3>
+        Enter Student Scores : 
+        <input type="text" id="int1">
+    </h3>
+    <h2 id="ans1"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-2 -->
+    <center>
+        <h1>------------ Restaurant Bill ------------</h1>
+    </center>
+    <br>
+    <div class="flex">
+        <h3>
+            Select Appropriate Menu : 
+        </h3>
+        &nbsp;&nbsp;&nbsp;
+        <select id="int2" class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option id="menu1" value="1">Pizza</option>
+            <option id="menu2" value="2">Gujrati Tali</option>
+            <option id="menu3" value="3">Deserts</option>
+        </select>
+    </div>
+    <div class="flex">
+        <h3>
+            Select Quantity : 
+        </h3>
+        &nbsp;&nbsp;&nbsp;
+        <div class="inc_dec">
+            <input id="quantity" type="number" step="1" max="10" value="1" name="quantity" class="quantity-field">
+        </div>
+    </div>
+    <h2 id="ans2"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-3 -->
+    <center>
+        <h1>------------ Calculate Simple Interest ------------</h1>
+    </center>
+    <br>
+    <h3>
+        Enter Principal Amount Of Interest : 
+        <input type="text" id="int3">
+    </h3>
+    <h3>
+        Enter Rate Of Interest : 
+        <input type="text" id="int4">
+    </h3>
+    <h3>
+        Enter Time Duration Of Interest : 
+        <input type="text" id="int5">
+    </h3>
+    <h2 id="ans3"></h2>
+    <br><hr><br>
+
+
+
+    <!-- Question-4 -->
+    <center>
+        <h1>------------ Change Password ------------</h1>
+    </center>
+    <br>
+    <h3>
+        Enter Your Username : 
+        <input type="text" id="int6">
+    </h3>
+    <h3>
+        Enter Your Password : 
+        <input type="text" id="int7">
+    </h3>
+    <h2 id="ans5"></h2>
+
+    <br><br><br>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+<script>
+    //Question-1
+
+    let mark = document.getElementById("int1").value
+    if(mark === "")
+    {
+        document.getElementById("ans1").innerHTML = "Invalid Score"
+    }
+    else
+    {
+        if(mark >= 90 && mark <=100)
+        {
+            document.getElementById("ans1").innerHTML = "A Grade..."
+        }
+        else if(mark >= 80 && mark <=89)
+        {
+            document.getElementById("ans1").innerHTML = "B Grade..."
+        }
+        else if(mark >= 70 && mark <=79)
+        {
+            document.getElementById("ans1").innerHTML = "C Grade..."
+        }
+        else if(mark >= 60 && mark <=69)
+        {
+            document.getElementById("ans1").innerHTML = "D Grade..."
+        }
+        else
+        {
+            document.getElementById("ans1").innerHTML = "Fail..."
+        }
+    }
+
+
+
+    //Question-2
+
+    let bill = document.getElementById("int2").value
+    let menu1 = document.getElementById("menu1").value
+    let menu2 = document.getElementById("menu2").value
+    let menu3 = document.getElementById("menu3").value
+
+    let quantity = document.getElementById("quantity").value
+
+    let price1 = 350
+    let price2 = 180
+    let price3 = 200
+
+    // let GST1 = (5 / 100) * price1
+    // let total1 = price1 + GST
+    
+    if(bill === "")
+    {
+        document.getElementById("ans2").innerHTML = "Select Menu..."
+    }
+    else
+    {
+
+        if(bill == menu1)
+        {
+            document.getElementById("ans2").innerHTML = "For "+quantity+" Pizza Price With GST is : <b>₹</b> "+((price1 * quantity) + (((5 / 100) * price1) * quantity))
+        }
+        else if(bill == menu2)
+        {
+            document.getElementById("ans2").innerHTML = "For "+quantity+" Gujarati Price With GST is <b>₹</b> : "+((price2 * quantity) + (((5 / 100) * price2) * quantity))
+        }
+        else
+        {
+            document.getElementById("ans2").innerHTML = "For "+quantity+" Deserts Price With GST is : <b>₹</b> "+((price3 * quantity) + (((5 / 100) * price3) * quantity))
+        }
+    }
+
+
+
+    //Question-3
+
+    var principal = document.getElementById("int3").value
+    var rate = document.getElementById("int4").value
+    var time = document.getElementById("int5").value
+
+    var ans2 = +principal * +rate * +time
+    document.getElementById("ans3").innerHTML = "Simple Interest is : "+ans2
+
+
+    //Question-4
+
+    var store_pass = "aastha@123"
+    var enter_pass = document.getElementById("int7").value
+
+    if(enter_pass === "")
+    {
+        document.getElementById("ans5").innerHTML = "Invalid Password"
+    }
+    else
+    {
+        if(enter_pass == store_pass)
+        {
+            document.getElementById("ans5").innerHTML = "Login Successfully..."
+        }
+        else
+        {
+            document.getElementById("ans5").innerHTML = "Incorrect Password..."
+        }
+    }
+
+</script>
+
+
