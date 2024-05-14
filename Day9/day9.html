@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        color: blue;
+    }
+    h2{
+        border: 2px solid;
+        padding: 5px;
+        width: fit-content;
+    }
+    hr{
+        border: 0.5px solid;
+    }
+</style>
+<body>
+    <!-- Question-1  -->
+    <center>
+        <h1>------------- Ticket Price -------------</h1>
+    </center>
+    <h3>
+        Enter Your Age : 
+        <input type="text" id="int1">
+    </h3>
+    <h2 id="ans1"></h2>
+    <br><hr><br>
+
+
+
+    <!-- Question-2  -->
+    <center>
+        <h1>------------- Calculate Discount -------------</h1>
+    </center>
+    <h3>
+        Enter Product Price : 
+        <input type="text" id="int2">
+    </h3>
+    <h2 id="ans2"></h2>
+    <br><hr><br>
+
+
+
+    <!-- Question-3  -->
+    <center>
+        <h1>------------- Guessing Game -------------</h1>
+    </center>
+    <h3>
+        Enter Any Number For Plaing Game : 
+        <input type="text" id="int3">
+    </h3>
+    <h2 id="ans3"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-3  -->
+    <center>
+        <h1>------------- Dollar To Rupees -------------</h1>
+    </center>
+    <h3>
+        Enter Price in $ : 
+        <input type="text" id="int4">
+    </h3>
+    <h2 id="ans4"></h2>
+    <br><br><br>
+
+    
+</body>
+</html>
+<script>
+    //Question-1
+
+    let age = document.getElementById("int1").value
+
+    if(age === "")
+    {
+        document.getElementById("ans1").innerHTML = "Invalid Age"
+    }
+    else
+    {
+        if(age>0 && age<=12)
+        {
+            document.getElementById("ans1").innerHTML = "Your Ticket Price is <u>₹ 5</u>"
+        }
+        else if(age>12 && age<=18)
+        {
+            document.getElementById("ans1").innerHTML = "Your Ticket Price is <u>₹ 10</u>"
+        }
+        else if(age>18 && age<=60)
+        {
+            document.getElementById("ans1").innerHTML = "Your Ticket Price is <u>₹ 20</u>"
+        }
+        else
+        {
+            document.getElementById("ans1").innerHTML = "Your Ticket Price is <u>₹ 15</u>"
+        }
+    }
+
+
+    //Question-2
+
+    let price = document.getElementById("int2").value
+
+    if(price === "")
+    {
+        document.getElementById("ans2").innerHTML = "Invalid Price"
+    }
+    else
+    {
+        if(price>=100)
+        {
+            document.getElementById("ans2").innerHTML = "Your Original Product Price is : "+(price-((price*20)/100))
+        }
+        else if(price>=50 && price<100)
+        {
+            document.getElementById("ans2").innerHTML = "Your Original Product Price is : "+(price-((price*10)/100))
+        }
+        else
+        {
+            document.getElementById("ans2").innerHTML = "Your Original Product Price is : "+price
+        }
+    }
+
+
+    //Question-3
+
+    let game = document.getElementById("int3").value 
+    let secret = "8"
+
+    if(game === "")
+    {
+        document.getElementById("ans3").innerHTML = "Invalid Number"
+    }
+    else
+    {
+        if(game > secret)
+        {
+            document.getElementById("ans3").innerHTML = "You Are '"+(game-secret)+"' Number Higher Than Secret Number..."
+        }
+        else if(game < secret)
+        {
+            document.getElementById("ans3").innerHTML = "You Are '"+(secret-game)+"' Number Lower Than Secret Number..."
+        }
+        else
+        {
+            document.getElementById("ans3").innerHTML = "🎊Congratulation!!!🎉 You Win This Game..."
+        }
+    }
+
+
+    //Question-4
+
+    let dollar = document.getElementById("int4").value
+    let rupees = 83.51
+
+    if(dollar === "")
+    {
+        document.getElementById("ans4").innerHTML = "Invalid Dollars"
+    }
+    else
+    {
+        document.getElementById("ans4").innerHTML = "Your "+dollar+"$ is Convert in Rupees is : ₹"+(dollar*rupees).toFixed(2)
+    }
+
+
+
+</script>
