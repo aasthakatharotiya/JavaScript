@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        color: blue;
+    }
+    h2{
+        border: 2px solid;
+        width: fit-content;
+        padding: 5px;
+    }
+    select{
+        font-size: 18px;
+    }
+</style>
+<body>
+    <!-- Question-1 -->
+    <center>
+        <h1>-------------- Day Of The Week --------------</h1>
+    </center>
+    <h3>
+        Enter Any Day Name : 
+        <input type="text" id="int1">
+    </h3>
+    <h2 id="ans1"></h2>
+    <br><hr><br>
+
+    <!-- Question-2 -->
+    <center>
+        <h1>-------------- Calculator --------------</h1>
+    </center>
+    <h3>
+        Enter Operator Name For Perform Mathematical Operation : 
+        <input type="text" id="int2">
+    </h3>
+    <h3>
+        Enter First Number : 
+        <input type="number" id="int3">
+    </h3>
+    <h3>
+        Enter Second Number : 
+        <input type="number" id="int4">
+    </h3>
+    <h2 id="ans2"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-3 -->
+    <center>
+        <h1>-------------- Traffic Light --------------</h1>
+    </center>
+    <h3>
+        Click On Any Traffic Light 🚦 : 
+    </h3>
+    <label>
+        <input type="radio" id="red" name="trafficLight" value="red"> 🔴Red
+    </label><br>
+    <label>
+        <input type="radio" id="yellow" name="trafficLight" value="yellow"> 🟡Yellow
+    </label><br>
+    <label>
+        <input type="radio" id="green" name="trafficLight" value="green"> 🟢Green
+    </label><br>
+    <h2 id="ans3"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-4 -->
+    <center>
+        <h1>-------------- Translate Different Language --------------</h1>
+    </center>
+    <h3>
+        Select Any Language : 
+    </h3>
+    <select name="" id="language">
+        <option value="">Select Any Language</option>
+        <option value="English">English</option>
+        <option value="Spanish">Spanish</option>
+        <option value="French">French</option>
+    </select>
+    <h2 id="ans4"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-5 -->
+    <center>
+        <h1>-------------- Coffee Menu --------------</h1>
+    </center>
+    <h3>
+        Choose Any Coffee : 
+    </h3>
+    <select name="" id="coffee">
+        <option value="">Select Any Coffee</option>
+        <option value="Java Chip Frappuccino">Java Chip Frappuccino</option>
+        <option value="Caffe Americano">Caffe Americano</option>
+        <option value="Cold coffee">Cold coffee</option>
+        <option value="Cappuccino">Cappuccino</option>
+        <option value="Chocolate Chip Frappuccino">Chocolate Chip Frappuccino</option>
+    </select>
+    <h2 id="ans5"></h2>
+    <br><br><br>
+
+</body>
+</html>
+<script>
+    //Question-1
+
+    let day = document.getElementById("int1").value
+
+    if(day === "")
+    {
+        document.getElementById("ans1").innerHTML = "Invalid Day's"
+    }
+    else
+    {
+        switch(day)
+        {
+            case "Sunday" :
+            case "sunday" :
+            case "SUNDAY" :
+                document.getElementById("ans1").innerHTML = "Relax and recharge for the week ahead !!! 😂🤹🏼‍♂️😁"
+                break
+            case "Monday" :
+            case "monday" :
+            case "MONDAY" :
+                document.getElementById("ans1").innerHTML = "It's The Day Of Lord Shiva 🔱🕉️📿..."
+                break
+            case "Tuesday" :
+            case "tuesday" :
+            case "TUESDAY" :
+                document.getElementById("ans1").innerHTML = "Keep going, you're doing great 🙋🏼👏🏼 !!!"
+                break
+            case "Wednesday" :
+            case "wednesday" :
+            case "WEDNESDAY" :
+                document.getElementById("ans1").innerHTML = "Halfway through the week 🕧📈 !!!"
+                break
+            case "Thursday" :
+            case "thursday" :
+            case "THURSDAY" :
+                document.getElementById("ans1").innerHTML = "Almost there, keep pushing 👩🏼‍💻 !!!"
+                break
+            case "Friday" :
+            case "friday" :
+            case "FRIDAY" :
+                document.getElementById("ans1").innerHTML = "It's Almost The Weekend 🎉🎊 !!!"
+                break
+            case "Saturday" :
+            case "saturday" :
+            case "SATURDAY" :
+                document.getElementById("ans1").innerHTML = "It's The Day Of Lord Hanumanji 📿🚩 ..."
+                break
+            default :
+                document.getElementById("ans1").innerHTML = "Please enter a valid day of the week...."
+        }
+    }
+
+
+
+    //Question-2
+
+    let operator = document.getElementById("int2").value
+    let first = document.getElementById("int3").value
+    let second = document.getElementById("int4").value
+
+    if(operator === "" && first === "" && second === "")
+    {
+        document.getElementById("ans2").innerHTML = "Invalid Any One Input"
+    }
+    else
+    {
+        switch(operator)
+        {
+            case "Addition" :
+            case "addition" :
+            case "plus" :
+            case "Plus" :
+            case "PLUS" :
+            case "+" :
+                document.getElementById("ans2").innerHTML = "Addision is : "+(+first + +second)
+                break
+            case "Subtraction" :
+            case "subtraction" :
+            case "minus" :
+            case "Minus" :
+            case "MINUS" :
+            case "-" :
+                document.getElementById("ans2").innerHTML = "Subtraction is : "+(+first - +second)
+                break
+            case "Multiplication" :
+            case "multiplication" :
+            case "mul" :
+            case "Mul" :
+            case "MUL" :
+            case "*" :
+                document.getElementById("ans2").innerHTML = "Multiplication is : "+(+first * +second)
+                break
+            case "Division" :
+            case "division" :
+            case "div" :
+            case "Div" :
+            case "DIV" :
+            case "/" :
+                document.getElementById("ans2").innerHTML = "Division is : "+(+first / +second)
+                break
+            default :
+                document.getElementById("ans2").innerHTML = "Enter Only Arithmetic Operator Like +, -, *, / ....."
+        }
+    }
+
+
+
+    //Question-3
+
+    var selectedLight = document.querySelector('input[name="trafficLight"]:checked').value;
+    let radio1 = document.getElementById("red").value
+    let radio2 = document.getElementById("yellow").value
+    let radio3 = document.getElementById("green").value
+
+    if(radio1 === "" || radio2 === "" || radio3 === "")
+    {
+        document.getElementById("ans3").innerHTML = "Select Any Light"
+    }
+    else
+    {
+        switch(selectedLight)
+        {
+            case radio1 :
+                document.getElementById("ans3").innerHTML = "Stop and wait..."
+                break
+            case radio2 :
+                document.getElementById("ans3").innerHTML = "Slow Down..."
+                break
+            case radio3 :
+                document.getElementById("ans3").innerHTML = "Go ahead !!!"
+                break
+            default :
+                document.getElementById("ans3").innerHTML = "Select Any Light..."
+        }
+    }
+
+
+
+    //Question-4
+
+    let language = document.getElementById("language").value
+    if(language === "")
+    {
+        document.getElementById("ans4").innerHTML = "Invalid Language"
+    }
+    else
+    {
+        switch(language)
+        {
+            case "English" : 
+                document.getElementById("ans4").innerHTML = "Hello..."
+                break
+            case "Spanish" : 
+                document.getElementById("ans4").innerHTML = "¡Hola..."
+                break
+            case "French" : 
+                document.getElementById("ans4").innerHTML = "Bonjour..."
+                break
+            default : 
+                document.getElementById("ans4").innerHTML = "Select Any Language..."
+        }
+    }
+
+
+    // Question-5
+
+    let coffee = document.getElementById("coffee").value
+    if(coffee === "")
+    {
+        document.getElementById("ans5").innerHTML = "Invalid Coffee"
+    }
+    else
+    {
+        switch(coffee)
+        {
+            case "Java Chip Frappuccino" : 
+                document.getElementById("ans5").innerHTML = "Your Coffee Price is '₹ 383.25'..."
+                break
+            case "Caffe Americano" : 
+                document.getElementById("ans5").innerHTML = "Your Coffee Price is '₹ 278.25'..."
+                break
+            case "Cold coffee" : 
+                document.getElementById("ans5").innerHTML = "Your Coffee Price is '₹ 372.75'..."
+                break
+            case "Cappuccino" : 
+                document.getElementById("ans5").innerHTML = "Your Coffee Price is '₹ 299.25'..."
+                break
+            case "Chocolate Chip Frappuccino" : 
+                document.getElementById("ans5").innerHTML = "Your Coffee Price is '₹ 414.75'..."
+                break
+            default : 
+                document.getElementById("ans5").innerHTML = "Select Any Coffee..."
+        }
+    }
+
+</script>
