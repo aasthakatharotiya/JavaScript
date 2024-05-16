@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .flex{
+        display: flex;
+    }
+    h1{
+        color: blue;
+    }
+</style>
+<body>
+    <!-- Question-1 -->
+    <center>
+        <h1>-------------- Palindrome Or Not --------------</h1>
+    </center>
+    <h3>
+        Enter Any String : 
+        <input type="text" id="int1">
+    </h3>
+    <h2 id="ans1"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-2 -->
+    <center>
+        <h1>-------------- Vowels in String --------------</h1>
+    </center>
+    <h3>
+        Enter Any String : 
+        <input type="text" id="int2">
+    </h3>
+    <h2 id="ans2"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-3 -->
+    <center>
+        <h1>-------------- Even Number --------------</h1>
+    </center>
+    <h3>
+        Enter Any Number : 
+        <input type="number" id="int3">
+    </h3>
+    <div class="flex">
+        <h2 id="ans4"></h2>
+        <h2 id="ans3"></h2>
+    </div>
+    <br><hr><br>
+
+
+    <!-- Question-4 -->
+    <center>
+        <h1>-------------- Odd Number --------------</h1>
+    </center>
+    <h3>
+        Enter Any Number : 
+        <input type="number" id="int4">
+    </h3>
+    <div class="flex">
+        <h2 id="ans5"></h2>
+        <h2 id="ans6"></h2>
+    </div>
+    <br><hr><br>
+
+
+    <!-- Question-5 -->
+    <center>
+        <h1>-------------- Consonants in String --------------</h1>
+    </center>
+    <h3>
+        Enter Any String : 
+        <input type="text" id="int5">
+    </h3>
+    <h2 id="ans7"></h2>
+    <br><hr><br>
+
+
+    <!-- Question-6 -->
+    <center>
+        <h1>-------------- Print Your Word Multiple Time --------------</h1>
+    </center>
+    <h3>
+        Enter Any Word : 
+        <input type="text" id="int6">
+    </h3>
+    <h3>
+        How Many Time You Would to Print Your Word ??   
+        <input type="text" id="int7">
+    </h3>
+    <h2 id="ans8"></h2>
+    <br><hr><br>
+</body>
+</html>
+<script>
+    //Question-1
+
+    let str1 = document.getElementById("int1").value
+    let empty1 = ""
+    let empty2 = ""
+
+    for(let i=0; str1[i]; i++)
+    {
+        empty1 += str1[i]
+    }
+    for(let i=str1.length-1; i>=0; i--)
+    {
+        empty2 += str1[i]
+    }
+    if(str1 === "")
+    {
+        document.getElementById("ans1").innerHTML = "Invalid String"
+    }
+    else
+    {
+        if(empty1 === empty2)
+        {
+            document.getElementById("ans1").innerHTML = "String is Palindrome..."
+        }
+        else
+        {
+            document.getElementById("ans1").innerHTML = "String is Not Palindrome..."
+        }
+    }
+
+
+    //Question-2
+
+    let vowel = document.getElementById("int2").value
+    let count_vowel = 0
+    if(vowel === "")
+    {
+        document.getElementById("ans2").innerHTML = "Invalid String"
+    }
+    else
+    {
+        for(let i=0; vowel[i]; i++)
+        {
+            if(vowel[i] == 'A' || vowel[i] == 'E' || 
+            vowel[i] == 'I' || vowel[i] == 'O' || 
+            vowel[i] == 'U' || vowel[i] == 'a' || 
+            vowel[i] == 'e' || vowel[i] == 'i' ||
+            vowel[i] == 'o' || vowel[i] == 'u')
+            {
+                count_vowel++
+            }
+        }
+        document.getElementById("ans2").innerHTML = count_vowel+" Vowels in Your String..."
+    }
+
+
+
+    //Question-3
+
+    let even = document.getElementById("int3").value
+
+    if(even === "")
+    {
+        document.getElementById("ans3").innerHTML = "Invalid Number's"
+    }
+    else
+    {
+        for(let i=1; i<=even; i++)
+        {
+            if(i % 2 == 0)
+            {
+                document.getElementById("ans4").innerHTML = "Even Number is : &nbsp;"
+                document.getElementById("ans3").innerHTML += i+"&nbsp;&nbsp;&nbsp;&nbsp;"
+            }
+        }
+    }
+
+
+
+    //Question-4
+
+    let odd = document.getElementById("int4").value
+
+    if(odd === "")
+    {
+        document.getElementById("ans6").innerHTML = "Invalid Number's"
+    }
+    else
+    {
+        for(let i=1; i<=odd; i++)
+        {
+            if(i % 2 != 0)
+            {
+                document.getElementById("ans5").innerHTML = "Odd Number is : &nbsp;"
+                document.getElementById("ans6").innerHTML += i+"&nbsp;&nbsp;&nbsp;&nbsp;"
+            }
+        }
+    }
+
+
+    //Question-5
+
+    let consonant= document.getElementById("int5").value
+    let count_consonant = 0
+    if(consonant === "")
+    {
+        document.getElementById("ans7").innerHTML = "Invalid String"
+    }
+    else
+    {
+        for(let i=0; consonant[i]; i++)
+        {
+            if(consonant[i] == 'A' || consonant[i] == 'E' || 
+            consonant[i] == 'I' || consonant[i] == 'O' || 
+            consonant[i] == 'U' || consonant[i] == 'a' || 
+            consonant[i] == 'e' || consonant[i] == 'i' ||
+            consonant[i] == 'o' || consonant[i] == 'u')
+            {
+                
+            }
+            else
+            {
+                count_consonant++
+            }
+        }
+        document.getElementById("ans7").innerHTML = count_consonant+" Consonant in Your String..."
+    }
+
+
+
+    //Question-6
+
+    let word = document.getElementById("int6").value
+    let num = document.getElementById("int7").value
+
+    if(word === "" && num === "")
+    {
+        document.getElementById("ans8").innerHTML = "Invalid Word Or Number"
+    }
+    else
+    {
+        for(let i=1; i<=num; i++)
+        {
+            document.getElementById("ans8").innerHTML += word+"<br>"
+        }
+    }
+
+</script>
