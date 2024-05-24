@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>------------- Simple Interest -------------</h1>
+    </center>
+    <h3>
+        Enter Principal Amount : 
+        <input type="number" id="int1">
+    </h3>
+    <h3>
+        Enter Rate Of Interest : 
+        <input type="number" id="int2">
+    </h3>
+    <h3>
+        Enter Time Period : 
+        <input type="number" id="int3">
+    </h3>
+
+    <h2 id="ans"></h2>
+</body>
+</html>
+<script>
+    let principal = document.getElementById("int1").value
+    let rate = document.getElementById("int2").value
+    let time = document.getElementById("int3").value
+    let count = 1
+
+    if(principal === "" && rate === "" && time === "")
+    {
+        document.getElementById("ans").innerHTML = "Invalid Principal, Rate Or Time..."
+    }
+    else
+    {
+        function calculatePrincipal(principal)
+        {
+            function calculateRate(rate)
+            {
+                function calculateTime(time)
+                {
+                    SI = (principal * rate * time)/100
+                    document.getElementById("ans").innerHTML = "Simple Interest is : $ "+SI
+                }
+                calculateTime(time)
+            }
+            calculateRate(rate)
+        }
+        calculatePrincipal(principal)
+    }
+
+</script>
