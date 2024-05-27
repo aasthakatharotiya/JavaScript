@@ -111,19 +111,19 @@ else
     {
         if(str_a[0] === "A" && str_a[str_a.length-1] === "A")
         {
-            return "Our String Will End With 'A' and Also Our String is End With 'A'"
+            return "Our String Will Start With 'A' and Also Our String is End With 'A'"
         }
         else if(str_a[0] === "a" && str_a[str_a.length-1] === "A")
         {
-            return "Our String Will End With 'A' and Also Our String is End With 'A'"
+            return "Our String Will Start With 'A' and Also Our String is End With 'A'"
         }
         else if(str_a[0] === "A" && str_a[str_a.length-1] === "a")
         {
-            return "Our String Will End With 'A' and Also Our String is End With 'A'"
+            return "Our String Will Start With 'A' and Also Our String is End With 'A'"
         }
         else if(str_a[0] === "a" && str_a[str_a.length-1] === "a")
         {
-            return "Our String Will End With 'A' and Also Our String is End With 'A'"
+            return "Our String Will Start With 'A' and Also Our String is End With 'A'"
         }
         else if(str_a[0] === "A" || str_a[0] === "a")
         {
