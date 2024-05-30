@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAY STRING PATTERN</title>
+</head>
+<body>
+    <!-- Question-1 -->
+    <center>
+        <h1>--------------- Array Elements Start From Or End With 'a' ---------------</h1>
+    </center>
+    <h2 id="ans1"></h2>
+
+
+    <!-- Question-1 -->
+    <center>
+        <h1>--------------- Sum Of Odd Number ---------------</h1>
+    </center>
+    <h2 id="ans2"></h2>
+</body>
+</html>
+<script>
+    //Question-1 
+
+    let arr_1 = ["assignment", "problem", "media", "upload"]
+    document.getElementById("ans1").innerHTML += "All The Elements in Array are : "+arr_1+ "<br><br>"
+
+    let ans_1 = arr_1.filter((elements_1) =>
+    {
+        return elements_1[0] == 'a'|| elements_1[elements_1.length - 1] == 'a'
+    })
+    document.getElementById("ans1").innerHTML += "Array Elements Start And End With 'a' is : "+ans_1
+
+
+    //Question-2
+
+    let arr_2 =  [1, 2, 3, 4]
+    let res_filter = []
+    document.getElementById("ans2").innerHTML += "All The Elements in Array are : "+arr_2+ "<br><br>"
+
+    let ans_2 = arr_2.filter((elements_2) =>
+    {
+        if(elements_2 % 2 != 0)
+        {
+            // return elements_2
+            return res_filter.push(elements_2)
+        }
+    })
+    let ans_3 = res_filter.reduce((acc, cur) =>
+    {
+        return acc + cur
+    },0)
+    document.getElementById("ans2").innerHTML += "Addition Of Odd Number is : "+ans_3
+
+</script>
