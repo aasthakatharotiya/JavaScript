@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Question-1 -->
+    <center>
+        <h1>------------------- 'Person' Key -------------------</h1>
+    </center>
+
+    <h3 id="person_info"></h3>
+
+
+    <!-- Question-2 -->
+    <center>
+        <h1>------------------- 'Car' Value -------------------</h1>
+    </center>
+
+    <h3 id="car_info"></h3>
+
+
+    <!-- Question-3 -->
+    <center>
+        <h1>------------------- Change "Page" Property in 'Book' -------------------</h1>
+    </center>
+
+    <h3 id="book_info"></h3>
+
+
+    <!-- Question-4 -->
+    <center>
+        <h1>------------------- Delete "Password" Property in 'User' -------------------</h1>
+    </center>
+
+    <h3 id="user_info"></h3>
+
+
+    <!-- Question-5 -->
+    <center>
+        <h1>------------------- Add "Price" Property in 'Laptop' -------------------</h1>
+    </center>
+
+    <h3 id="laptop_info"></h3>
+
+
+    <!-- Question-6 -->
+    <center>
+        <h1>------------------- Create Method in 'Student' -------------------</h1>
+    </center>
+
+    <h3 id="student_info"></h3>
+
+
+</body>
+</html>
+<script>
+    //Question-1
+
+    let person = {
+        FirstName : "Aastha",
+        LastName : "Katharotiya",
+        Age : "19",
+        Course : "B.Tech IT"
+    }
+    for(key_1 in person)
+    {
+        document.getElementById("person_info").innerHTML += key_1 + " = " + person[key_1] + "<br>"
+        console.log(key_1 + " = " + person[key_1])
+    }
+
+
+    //Question-2
+
+    let car = {
+        CarName : "Skoda",
+        CarModel : 4,
+        CarColor : "Black",
+        CarAverage : "18.97 kmpl",
+        CarPrice : "54 Lakh",
+        CarEngine : "Diesel Engine"
+    }
+    for(key_2 in car)
+    {
+        document.getElementById("car_info").innerHTML += key_2 + " = " + car[key_2] + "<br>"
+        console.log(key_2 + " = " + car[key_2])
+    }
+
+
+    //Question-3
+
+    let book = {
+        BookName : "Rich Dad Poor Dad",
+        BookAuthor : "Robert Kiyosaki",
+        BookPrice : "₹ 395.00",
+        BookPage : 300
+    }
+    for(key_3 in book)
+    {
+        document.getElementById("book_info").innerHTML += key_3 + " = " + book[key_3] + "<br>"
+        console.log(key_3 + " = " + book[key_3])
+    }
+
+    let oldBookPage = book.BookPage;
+    book.BookPage = 366;
+
+    document.getElementById("book_info").innerHTML += "<br>*** After Changing 'page' Property ***<br>" + book.BookPage
+    console.log("New BookPage:", book.BookPage);
+
+
+    //Question-4
+
+    let user = {
+        Id : "Aastha Kathalrotiya",
+        Password : "abc@123",
+        Email : "aastha2006@gmail.com",
+    }
+    for(key_4 in user)
+    {
+        document.getElementById("user_info").innerHTML += key_4 + " = " + user[key_4] + "<br>"
+        console.log(key_4 + " = " + user[key_4])
+    }
+    delete user.Password;
+    document.getElementById("user_info").innerHTML += "<br><br>*** After Delete 'Password' Property ***<br><br>"
+    for(key_4 in user)
+    {
+        document.getElementById("user_info").innerHTML += key_4 + " = " + user[key_4] + "<br>"
+        console.log(key_4 + " = " + user[key_4])
+    }
+
+
+    //Question-5
+
+    let laptop = {
+        LaptopName : "HP Pavilion",
+        LaptopMemory : "16GB",
+        ProcessorName : "Core i3"
+    }
+    for(key_5 in laptop)
+    {
+        document.getElementById("laptop_info").innerHTML += key_5 + " = " + laptop[key_5] + "<br>"
+        console.log(key_5 + " = " + laptop[key_5])
+    }
+    laptop.LaptopPrice = "1 Lakh";
+    document.getElementById("laptop_info").innerHTML += "<br><br>*** After Adding 'Price' Property ***<br><br>"
+    for(key_5 in laptop)
+    {
+        document.getElementById("laptop_info").innerHTML += key_5 + " = " + laptop[key_5] + "<br>"
+        console.log(key_5 + " = " + laptop[key_5])
+    }
+
+
+    //Question-6
+
+    let student = {
+        StudentName : "Aastha Katharotiya",
+        StudentAge : 19,
+        StudentCource : "B.Tech IT"
+    }
+    for(key_6 in student)
+    {
+        document.getElementById("student_info").innerHTML += key_6 + " = " + student[key_6] + "<br>"
+        console.log(key_6 + " = " + student[key_6])
+    }
+    student.greet = function(){
+        console.log("Have a Nice Day !!!")
+        document.getElementById("student_info").innerHTML += "Have a Nice Day !!!"
+    }
+    student.greet()
+
+</script>
