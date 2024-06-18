@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Question-1 -->
+    <center>
+        <h1>------------------- Name in 'Capital' Letters -------------------</h1>
+    </center>
+
+    <h3 id="capital"></h3>
+
+    <!-- Question-2 -->
+    <center>
+        <h1>------------------- Marks > 60 -------------------</h1>
+    </center>
+
+    <h3 id="mark"></h3>
+
+
+    <!-- Question-3 -->
+    <center>
+        <h1>------------------- Marks > 60 && Roll No > 15 -------------------</h1>
+    </center>
+
+    <h3 id="roll"></h3>
+
+
+    <!-- Question-4 -->
+    <center>
+        <h1>------------------- Sum Of Marks -------------------</h1>
+    </center>
+
+    <h3 id="sum"></h3>
+
+
+    <!-- Question-5 -->
+    <center>
+        <h1>------------------- Print 'Name' Who Scored > 60 -------------------</h1>
+    </center>
+
+    <h3 id="name_mark"></h3>
+
+
+    <!-- Question-6 -->
+    <center>
+        <h1>------------------- Add 20 in Each Student Marks -------------------</h1>
+    </center>
+
+    <h3 id="add"></h3>
+
+
+    <!-- Question-7 -->
+    <center>
+        <h1>------------------- category = education -------------------</h1>
+    </center>
+
+    <h3 id="quote"></h3>
+
+
+</body>
+</html>
+<script>
+    //***Question-1***
+
+    let Student = [
+        {Name : "Aastha", Roll_No : '12', Mark : 95},
+        {Name : "Harmi", Roll_No : '13', Mark : 35},
+        {Name : "Komal", Roll_No : '14', Mark : 45},
+        {Name : "Bhakti", Roll_No : '15', Mark : 25},
+        {Name : "Mansi", Roll_No : '16', Mark : 85},
+    ]
+
+    //Question-1
+
+    for(let i=0; i<Student.length; i++)
+    {
+        document.getElementById("capital").innerHTML += Student[i].Name.toUpperCase() + "<br>"
+        console.log(Student[i].Name.toUpperCase())
+    }
+
+
+    //Question-2
+
+    let mark = Student.filter((el_1)=>
+    {
+        return el_1.Mark > 60;
+    })
+    console.log(mark)
+    document.getElementById("mark").innerHTML += mark
+
+
+    //Question-3
+
+    let roll = Student.filter((el_2)=>
+    {
+        return el_2.Mark > 60 && el_2.Roll_No > 15;
+    })
+    console.log(roll)
+    document.getElementById("roll").innerHTML += roll
+
+
+    //Question-4
+
+    let sum = Student.reduce((acc, curr)=>
+    {
+        return acc + curr.Mark ;
+    },0) 
+    console.log(sum)
+    document.getElementById("sum").innerHTML = sum
+
+
+    //Question-5
+
+    let name_mark = Student.filter((el_3)=>
+    {
+        return el_3.Mark > 60;
+    }).map((el_3)=>
+    {
+        return el_3.Name
+    })
+    console.log(name_mark)
+    document.getElementById("name_mark").innerHTML += name_mark
+
+
+    //Question-6
+
+    let add = Student.map((el_4)=>
+    {
+        return el_4.Mark + 20
+    })
+    console.log(add)
+    document.getElementById("add").innerHTML += add
+
+
+    //Question-7
+
+    let Quote = [
+        {Text : "chainshow man", Author : 'Tsugu', Category : "education"},
+        {Text : "jujutsu kaisen", Author : 'Gege Akutami', Category : "anime"},
+        {Text : "shinchan", Author : 'Yoshito Usui', Category : "cartoon"},
+        {Text : "death_note", Author : 'Tsugumi Ohba', Category : "education"}
+    ]
+
+    let quote = Quote.filter((el_5)=>
+    {
+        return el_5.Category === "education"
+    })
+    console.log(quote)
+    document.getElementById("quote").innerHTML += quote
+
+
+
+</script>
