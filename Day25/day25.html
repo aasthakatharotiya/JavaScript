@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: white;
+    }
+    center{
+        color: rgb(11, 224, 227);
+    }
+</style>
+<body>
+    <!-- Question-1 -->
+    <center>
+        <h1>------------------- "Student" Object -------------------</h1>
+    </center>
+
+    <h3 id="student_info"></h3>
+
+
+    <!-- Question-2 -->
+    <center>
+        <h1>------------------- "Quote" Object -------------------</h1>
+    </center>
+
+    <h3 id="quote_info"></h3>
+
+
+    <!-- Question-3 -->
+    <center>
+        <h1>------------------- "Book" Object -------------------</h1>
+    </center>
+
+    <h3 id="book_info"></h3>
+
+</body>
+</html>
+<script>
+    //Question-1
+
+    let Student = [
+        {Name : "Aastha", Roll_No : '12', Mark : 95},
+        {Name : "Harmi", Roll_No : '13', Mark : 35},
+        {Name : "Komal", Roll_No : '14', Mark : 45},
+        {Name : "Bhakti", Roll_No : '15', Mark : 25},
+        {Name : "Mansi", Roll_No : '16', Mark : 85},
+    ]
+
+    let student_info = Student.filter((el_1)=>
+    {
+        return el_1.Mark > 90
+    }).map((el_1)=>
+    {
+        return el_1.Name
+    })
+    document.getElementById("student_info").innerHTML += "<h2 style='color: rgb(252, 2, 123);'>***Student Score Grater Than 60***</h2><br>*** Using HOF Function ***<br>" + student_info
+    console.log(student_info)
+
+
+
+    document.getElementById("student_info").innerHTML += "<br><br>"
+    for(let i=0; i<Student.length; i++)
+    {
+        if(Student[i].Mark > 90)
+        {
+            document.getElementById("student_info").innerHTML += "*** Using For Loop ***<br>" + Student[i].Name
+            console.log(Student[i].Name)
+        }
+    }
+
+
+
+
+    //Question-2
+
+    let Quote = [ 
+        {Text : "Nature is the source of all true knowledge.",Author : "Leonardo da Vinci ",Category : "Nature"},
+        {Text : "The beautiful thing about learning is that no one can take it away from you.",Author : "B.B. King",Category : "Education"},
+        {Text : "The mind is not a vessel to be filled, but a fire to be kindled.",Author : "Plutarch",Category : "Education"},
+        {Text : "Your self-worth is determined by you.",Author : "Wayne W. Dyer",Category : "inspiration"}      
+    ]
+
+    let quote = Quote.filter((el_2)=>
+    {
+        return el_2.Category === "Education"
+    }).map((el_2)=>
+    {
+        return "Text : "+el_2.Text +"<br>Author : "+el_2.Author +"<br>Category : "+el_2.Category +"<br><br>"
+    })
+    console.log(quote)
+    document.getElementById("quote_info").innerHTML += "<h2 style='color: rgb(252, 2, 123);'>***Category = 'Education'***</h2><br>"+quote
+
+
+
+
+    //Question-3
+
+    let Book = [
+        {Title : "Rich Dad Poor Dad", Author : "Robert Kiyosaki", Price : 50, QuantityAvailable : 3},
+        {Title : "Great Expectations", Author : "Charles Dickens", Price : 60, QuantityAvailable : 5},
+        {Title : "Robinson Crusoe", Author : "Daniel Defoe", Price : 65, QuantityAvailable : 0},
+        {Title : "The God of Small Things", Author : "Arundhati Roy", Price : 30, QuantityAvailable : 1},
+        {Title : "A Passage to India", Author : "E. M. Forster", Price : 40, QuantityAvailable : 2}
+    ]
+
+    let book_info = Book.filter((el_3)=>
+    {
+        return el_3.Price <= 60 && el_3.QuantityAvailable > 0;
+    }).map((el_3)=>
+    {
+        return "Title : "+el_3.Title +"<br>Author : "+el_3.Author +"<br>Price : "+el_3.Price +"<br>QuantityAvailable : "+el_3.QuantityAvailable +"<br><br>"
+    })
+    console.log(book_info)
+    document.getElementById("book_info").innerHTML = "<h2 style='color: rgb(252, 2, 123);'>***Price Less Than 60 and Quantity is More Than 0***</h2><br>"+book_info
+
+    
+</script>
