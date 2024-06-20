@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .cal_bg{
+        background-color: black;
+        color: white;
+        width: 35%;
+        padding-top: 5px;
+        padding-bottom: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .cal_disp{
+        display: flex;
+        width: 100%;
+    }
+    .cal_disp input{
+        background-color: rgb(78, 76, 76);
+        border: 1px solid white;
+        color: white;
+        font-size: 20px;
+        height: 50px;
+        width: 50%;
+    }
+    .cal_butt{
+        display: flex;
+        justify-content: space-between;
+    }
+    .cal_butt button{
+        height: 50px;
+        width: 50px;
+        font-size: 30px;
+    }
+    #ans{
+        height: 50px;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(78, 76, 76);
+    }
+</style>
+<body>
+    <!-- Question-1 -->
+
+    <h1 class="red green blue">Hello Friend, Good Morning</h1>
+    <button onclick="chgred()" ondblclick="db_red()">Red Color</button>
+
+    <h3 class="red green blue">Life is God's Novel</h3>
+    <button onclick="chggreen()" ondblclick="db_green()">Green Color</button>
+
+    <h5 class="red green blue">The Earth Laughs in Flowers.</h5>
+    <button onclick="chgblue()" ondblclick="db_blue()">blue Color</button>
+
+    <h2>To Change Above Message Using Any One Button Like Red, Green and Blue Then Click Below Button</h2>
+    <button onclick="Red()">Red</button>
+    <button onclick="Green()">Green</button>
+    <button onclick="Blue()">Blue</button>
+
+    <br><br><hr>
+
+
+    <!-- Question-2 -->
+
+    <h2 id="firstname">Your FirstName</h2>
+    <h3 id="lastname">Your LastName</h3>
+    <p id="fullname">Your First&LastName</p>
+    
+    <button onclick="setFirstName()">FIRSTNAME</button>
+    <button onclick="setLastName()">LASTNAME</button>
+    <button onclick="setFullName()">FIRSTNAME NAME</button> 
+    <button onclick="resetDefaults()">RESET DEFAULTS</button>
+
+    <br><br><hr>
+
+
+    <!-- Question-3 -->
+
+
+    <center>
+        <div class="cal_bg">
+            <h1>Calculator</h1>
+            <div class="cal_disp">
+                <input type="number" id="num_1" placeholder="Number 1">
+                <input type="number" id="num_2" placeholder="Number 2">
+            </div>
+            <br>
+            <div class="cal_butt">
+                <button onclick="setOperation('add')">+</button>
+                <button onclick="setOperation('sub')">-</button>
+                <button onclick="setOperation('mul')">*</button>
+                <button onclick="setOperation('div')">/</button>
+                <button style="background-color: rgb(123, 123, 255); border: none; color: white;" onclick="calculate()">=</button>
+            </div>
+            <br>
+            <div id="ans"></div>
+        </div>
+    </center>
+
+    <br><br><br>
+
+
+</body>
+</html>
+<script>
+    //Question-1
+
+    //***function_1***
+    function chgred()
+    {
+        document.querySelector("h1").style.color = "red"
+    }
+    function db_red()
+    {
+    document.querySelector("h1").style.color = "black"
+    }
+
+    //***function_2***
+    function chggreen()
+    {
+        document.querySelector("h3").style.color = "rgb(9, 249, 9)"
+    }
+    function db_green()
+    {
+        document.querySelector("h3").style.color = "black"
+    }
+
+    //***function_3***
+    function chgblue()
+    {
+        document.querySelector("h5").style.color = "blue"
+    }
+    function db_blue()
+    {
+    document.querySelector("h5").style.color = "black"
+    }
+
+
+
+    
+    function Red()
+    {
+        let msg_red = document.querySelectorAll(".red")
+        for(let i=0; i<msg_red.length; i++)
+        {
+            msg_red[i].style.color = "red"
+        }
+    }
+    function Green()
+    {
+        let msg_green = document.querySelectorAll(".green")
+        for(let i=0; i<msg_green.length; i++)
+        {
+            msg_green[i].style.color = "rgb(9, 249, 9)"
+        }
+    }
+    function Blue()
+    {
+        let msg_blue = document.querySelectorAll(".blue")
+        for(let i=0; i<msg_blue.length; i++)
+        {
+            msg_blue[i].style.color = "blue"
+        }
+    }
+
+
+
+
+
+
+    //Question-2
+
+    function setFirstName()
+    {
+        document.querySelector("#firstname").textContent = "Aastha"
+    }
+    function setLastName()
+    {
+        document.querySelector("#lastname").textContent = "Katharotiya"
+    }
+     
+    function setFullName()
+    {
+        let First_Name = document.querySelector("#firstname").textContent
+        let Second_Name = document.querySelector("#lastname").textContent
+
+        document.getElementById("fullname").textContent = First_Name + " " + Second_Name
+    }
+     
+    function resetDefaults()
+    {
+        document.querySelector("#firstname").textContent = "Your FirstName"
+        document.querySelector("#lastname").textContent = "Your LastName"
+        document.getElementById("fullname").textContent = "Your First&LastName"
+    }
+
+
+
+
+
+    //Question-3
+
+    function calculate()
+    {
+        const num1 = document.getElementById('num_1').value;
+        const num2 = document.getElementById('num_2').value;
+        let result;
+
+        if('add')
+        {
+            result  = +num1 + +num2;  
+        }
+        else if('sub')
+        {
+            result = +num1 - +num2;
+        }
+        else if('mul')
+        {
+            result = +num1 * +num2;
+        }
+        else if('div')
+        {
+            result = +num1 / +num2;
+        }
+        else
+        {
+            document.getElementById('ans').innerText = 'Please select an operation';
+        }
+        document.getElementById('ans').innerText = "Result : " + result;
+    }
+
+
+</script>
