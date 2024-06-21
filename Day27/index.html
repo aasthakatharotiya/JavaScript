@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insert Table Data</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Dont make any changes here -->
+    <h1>TODO App</h1>
+    <div>
+      <form id="taskForm">
+        <label for="task">Task:</label>
+        <input type="text" id="task" name="task" placeholder="Enter Task Name" required>
+        <br><br>
+
+        <label for="priority">Priority:</label>
+        <select id="priority">
+            <option value="">Select Priority</option>
+            <option value="High">High</option>
+            <option value="Low">Low</option>
+        </select>
+        <br><br>
+
+        <label for="favourite">Favourite:</label>
+        <!-- <input type="text" id="favourite" name="favourite" placeholder="Add Your Language" required> -->
+        <select id="favourite">
+          <option value="">Select Favourite Language</option>
+          <option value="C Language">C Language</option>
+          <option value="Python">Python</option>
+          <option value="PHP">PHP</option>
+          <option value="Perl">Perl</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="HTML / CSS">HTML / CSS</option>
+          <option value=".NET">.NET</option>
+          <option value="Tailwind CSS / Bootstrap">Tailwind CSS / Bootstrap</option>
+        </select>
+        <br><br>
+        <input type="submit" onclick="clk_submit()"/>
+      </form>
+
+
+      <table id="create_tr">
+        <!-- Dont change order of columns -->
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Priority</th>
+            <th>Favourite</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Insert Row And Column -->
+        </tbody>
+
+      </table>
+
+    </div>
+  </body>
+</html>
+
+<script src="index.js"></script>
