@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span{
+        color: red;
+        margin-left: 30px;
+        font-size: 20px;
+    }
+    #gender{
+        height: 25px;
+    }
+    h2{
+        margin-top: 40px;
+    }
+    input[type="submit"] {
+        width: fit-content;
+        margin-top: 20px;
+        background-color: #2b619e;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <center>
+        <h1>---------- Login Form ----------</h1>
+    <!-- </center> -->
+    <!-- <center> -->
+        <form action="" id="sign_up">
+            <h2>
+                Enter Your Name : 
+                <input type="text" id="name">
+                <span id="name_err"></span>
+            </h2>
+           
+            <h2>
+                Enter Your Password : 
+                <input type="text" id="psw">
+                <span id="psw_err"></span>
+                <span id="psw_char"></span>
+            </h2>
+    
+            <h2>
+                Enter Confirm Password : 
+                <input type="text" id="cpw">
+                <span id="cpw_err"></span>
+            </h2>
+    
+            <h2>
+                Enter Date : 
+                <input type="text" id="date">
+                <span id="date_err"></span>
+            </h2>
+    
+            <h2>
+                Enter Your Hobby : 
+                <input type="text" id="hobby">
+                <span id="hobby_err"></span>
+            </h2>
+    
+            <h2>
+                Enter Your Email : 
+                <input type="text" id="email">
+                <span id="email_err"></span>
+            </h2>
+
+            <h2>
+                Enter Your Phone Number : 
+                <input type="text" id="no">
+                <span id="no_err"></span>
+            </h2>
+    
+            <h2>
+                Enter Your Gender : 
+                <select name="" id="gender">
+                    <option value="">Select Your Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span id="gender_err"></span>
+            </h2>
+
+
+            <input type="submit" />
+    
+        </form>
+    </center>
+</body>
+</html>
+<script src="day29.js"></script>
