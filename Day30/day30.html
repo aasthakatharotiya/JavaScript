@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="day30.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="main">
+        <form action="" id="sign_up">
+            <br>
+            <center class="heading">
+                <h1>Registration Form</h1>
+                <h4>Fill Out The Form Carefully For Registration</h4>
+            </center>
+            <br><br>
+            <label for="">Student Name</label>
+            <br>
+            <div class="input_flex">
+                <div>
+                    <input type="text" id="first_name">
+                    <p>First Name</p>
+                </div>
+                &nbsp;
+                <div>
+                    <input type="text" id="middle_name">
+                    <p>Middle Name</p>
+                </div>
+                &nbsp;
+                <div>
+                    <input type="text" id="last_name">
+                    <p>Last Name</p>
+                </div>
+            </div>
+            <span id="name_err"></span>
+
+            <br><br>
+            <div class="flex">
+                <div class="flex_space">
+                    <label for="">Gender</label>
+                    <br>
+                    <select id="gender" class="select_input">
+                        <option value="">Select Your Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <span id="gender_err"></span>
+                </div>
+                <div class="flex_space">
+                    <label for="">Student E-mail</label>
+                    <br>
+                    <input type="text" id="email" class="input_width">
+                    <p>example@gmail.com</p>
+                    <span id="email_err"></span>
+                </div>
+            </div>
+
+            <br><br>
+            <div class="flex">
+                <div class="flex_space">
+                    <label for="">Student ID</label>
+                    <br>
+                    <input type="text" id="id" class="input_width">
+                    <span id="id_err"></span>
+                </div>
+                <div class="flex_space">
+                    <label for="">List Of Classes</label>
+                    <br>
+                    <select id="classes" class="select_input">
+                        <option value="">Select Your Classes</option>
+                        <option value="HTML / CSS">HTML / CSS</option>
+                        <option value="JQuery">JQuery</option>
+                        <option value="Bootstrap">Bootstrap</option>
+                        <option value="DSA">DSA</option>
+                        <option value="C Language">C Language</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Node JS">Node JS</option>
+                        <option value="React JS">React JS</option>
+                        <option value="Mongo DB">Mongo DB</option>
+                    </select>
+                    <span id="class_err"></span>
+                </div>
+            </div>
+
+            <br><br>
+            <center>
+                <input type="submit" />
+            </center>
+        </form>
+    </div>
+</body>
+</html>
+<script src="day30.js"></script>

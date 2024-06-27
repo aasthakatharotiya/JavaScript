@@ -1,0 +1,88 @@
+*{
+    margin: 0px;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid; */
+    margin-left: 350px;
+    margin-right: 350px;
+    padding-top: 88px;
+    padding-bottom: 88px;
+    background: linear-gradient(#071952, #088395);
+}
+.main label{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#sign_up{
+    /* border: 2px solid; */
+    padding: 30px;
+    width: 65%;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.heading{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.heading h1{
+    margin-top: -15px;
+}
+.heading h4{
+    /* margin-top: -12px; */
+    color: rgb(140, 139, 139);
+}
+
+.input_flex{
+    display: flex;
+    justify-content: space-between;
+}
+p{
+    color: rgb(86, 85, 85);
+    margin-top: -0px;
+}
+
+.flex{
+    /* border: 2px solid; */
+    display: flex;
+    justify-content: space-between;
+}
+.select_input{
+    height: 30px;
+    width: 100%;
+    margin-top: 5px;
+}
+.flex_space{
+    width: 48%;
+}
+.input_width{
+    width: 98%;
+}
+
+input[type="text"]{
+    height: 25px;
+    margin-top: 5px;
+    /* position: relative; */
+}
+
+input[type="submit"] {
+    background-color: #2b619e;
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 20px;
+}
+  
+input[type="submit"]:hover {
+    background-color: #3973b6;
+}
+
+span{
+    color: red;
+}
