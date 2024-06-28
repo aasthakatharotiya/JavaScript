@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations Page</title>
+    <link rel="stylesheet" href="animation.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div id="confetti-wrapper">
+      <div id="text">
+        <div class="checkmark-circle">
+          <div class="background"></div>
+          <div class="checkmark draw"></div>
+        </div>
+        <h1>🎉🎊 Congratulations 🎊🎉</h1>
+        <p>Your Form Has Been Submitted SuccessFully...</p>
+      </div>  
+    </div>
+  </div>
+</body>
+</html>
+<script>
+
+for(i=0; i<100; i++) {
+  var randomRotation = Math.floor(Math.random() * 360);
+  var randomScale = Math.random() * 1;
+  var randomWidth = Math.floor(Math.random() * Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
+  var randomHeight =  Math.floor(Math.random() * Math.max(document.documentElement.clientHeight, window.innerHeight || 500));
+  
+  var randomAnimationDelay = Math.floor(Math.random() * 15);
+  console.log(randomAnimationDelay);
+
+  var colors = ['#0CD977', '#FF1C1C', '#FF93DE', '#5767ED', '#FFC61C', '#8497B0']
+  var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+  var confetti = document.createElement('div');
+  confetti.className = 'confetti';
+  confetti.style.top=randomHeight + 'px';
+  confetti.style.right=randomWidth + 'px';
+  confetti.style.backgroundColor=randomColor;
+  confetti.style.obacity=randomScale;
+  confetti.style.transform='skew(15deg) rotate(' + randomRotation + 'deg)';
+  confetti.style.animationDelay=randomAnimationDelay + 's';
+  document.getElementById("confetti-wrapper").appendChild(confetti);
+}
+</script>
