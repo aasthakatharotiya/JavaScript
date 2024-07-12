@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #main{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .store_div{
+        /* border: 2px solid; */
+        /* height: 300px; */
+        /* overflow: hidden; */
+        width: 48%;
+        padding-left: 20px;
+    }
+    .main_img{
+        height: 180px;
+        width: 170px;
+    }
+    .main_hr{
+        border: 2px solid;
+    }
+</style>
+<body>
+    <div id="main">
+    
+    </div>
+</body>
+</html>
+<script>
+    fetch('https://fakestoreapi.com/products')
+    .then((res) =>
+    {
+        return res.json()
+    }).then((json)=>
+    {
+        console.log(json)
+        displayData(json)
+    }).catch((err)=>
+    {
+        console.log(err + " Invalid Link...")
+    })
+
+
+    function displayData(json)
+    {
+        json.map((el) =>
+        {
+            let box = document.createElement('div')
+            box.setAttribute("class", "store_div")
+
+            let heading = document.createElement('h2')
+            heading.innerHTML = el.title
+            
+            let pic = document.createElement('img')
+            pic.setAttribute("src", el.image)
+            pic.setAttribute("class", "main_img")
+
+            let price = document.createElement('h3')
+            price.innerHTML = "$ "+el.price
+
+            let hr = document.createElement('hr')
+            hr.setAttribute("class", "main_hr")
+
+            box.append(heading, pic, price, hr)
+            document.getElementById("main").append(box)
+        })
+    }
+
+</script>
