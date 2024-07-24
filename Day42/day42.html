@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="user_int" type="text">
+    <button onclick="fetching_Data()">Search</button>
+
+    <div id="main"></div>
+</body>
+</html>
+<script>
+    function fetching_Data()
+    {
+        let APIKey = "3729d8bb"
+        let movie = document.getElementById("user_int").value
+        // let url = `http://www.omdbapi.com/?i=tt3896198&apikey=3729d8bb`
+        let url = `http://www.omdbapi.com/?apikey=${APIKey}&t=${movie}`
+
+        fetch(url).then((res) =>
+        {
+            return res.json()
+        }).then((json) =>
+        {
+            console.log(json)
+            display(json)
+        }).catch((err) =>
+        {
+            console.log(err)
+        })
+    }
+
+    fetching_Data()
+
+    function display(data)
+    {
+        let div = document.getElementById("main")
+        let img = document.createElement("img")
+        img.setAttribute("src", data.Poster)
+        div.append(img)
+        // document.getElementById("main").append(div)
+    }
+
+
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>------------------- Local Storage -------------------</h1>
+    </center>
+    <h3>*** Stored Data ***</h3>
+    <p id="data"></p>
+    <button id="delete">Delete Data</button>
+</body>
+</html>
+<script>
+    const user = {
+        name : 'Aastha Katharotiya',
+        age : 19,
+        email : 'aastha0801@gmail.com'
+    }
+
+    localStorage.setItem("user_data",JSON.stringify(user))
+    let person = JSON.parse(localStorage.getItem("user_data"))
+    console.log(person)
+    document.getElementById("data").innerHTML += "Name is : " + person.name + "<br>"
+    document.getElementById("data").innerHTML += "Age is : " + person.age + "<br>"
+    document.getElementById("data").innerHTML += "Email is : " + person.email
+
+    document.getElementById("delete").addEventListener('click', function()
+    {
+        localStorage.removeItem("user_data")
+        document.getElementById("data").innerHTML = ""
+        console.clear();
+    })
+</script>
