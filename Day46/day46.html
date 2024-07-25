@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    .info{
+        color: rgb(253, 137, 4);
+
+        button{
+            background-color: #50B498;
+            color: white;
+            border: none;
+        }
+    }
+    input{
+        height: 35px;
+    }
+    button{
+        height: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 17px;
+    }
+    .fa-star{
+        font-size: 25px;
+        margin-right: 5px;
+    }
+    .img_size{
+        /* height: 300px; */
+        width: 100%;
+    }
+    .edit_btn{
+        display: block;
+        height: 40px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        background-color: rgb(232,111,157);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .edit_btn:hover{
+        transition: 2s;
+        background-color: rgb(250, 3, 98);
+        height: 50px;
+        font-size: 25px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .update_btn{
+        /* update_btn.id = "confettiButton" */
+        position: relative;
+        margin-left: 20px;
+        height: 40px;
+        background-color: #3FA2F6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .update_btn:hover{
+        color: #3FA2F6;
+        background-color: white;
+        border: 2px solid #3FA2F6;
+    }
+
+    #data_title,
+    #data_price,
+    #data_category,
+    #data_img,
+    #data_rate{
+        padding-bottom: 20px;
+    }
+
+    .row{
+        display: flex;
+        justify-content: space-between;
+        .col{
+            width: 20%;
+        }
+    }
+</style>
+<body>
+    <center>
+        <h1>------------------- Access Data From Array Using Fake Store API  -------------------</h1>
+    </center>
+    <br>
+    <h2 class="info">
+        Enter ID that will Be You Display : &nbsp;
+        <input id="user_id" type="text">
+        <button id="dis_user">Display Data</button>
+    </h2>
+
+    <center>
+        <div class="container main">
+            <div class="row">
+                <div id="data_title" class="col"></div>
+                <div id="data_price" class="col"></div>
+                <div id="data_category" class="col"></div>
+                <div id="data_img" class="col"></div>
+                <div id="data_rate" class="col"></div>
+            </div>
+        </div>
+    </center>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+<script src="day46.js"></script>
+<script>
+    
+    //Title
+    document.getElementById('dis_user').addEventListener('click', function() 
+    {
+        let userId = document.getElementById("user_id").value
+        let data_title = document.getElementById("data_title")
+        if(userId === "" || userId > 20)
+        {
+            data_title.innerHTML = "<h2>Invalid ID...</h2>"
+            data_title.style.textAlign = "left"
+            data_title.style.marginTop = "-20px"
+        }
+        else
+        {
+            data_title.style.border = "2px solid"
+            data_title.innerHTML = "<h1><u>Title</u></h1>"
+
+            for (let i = 0; i < arr.length; i++) 
+            {
+                if (arr[i].id == userId) 
+                {
+                    let h3 = document.createElement("h3")
+                    h3.innerHTML = arr[i].title
+
+                    edit_btn = document.createElement("button")
+                    edit_btn.innerHTML = "Edit"
+                    edit_btn.setAttribute("class", "edit_btn")
+
+                    let input = document.createElement("input")
+                    input.type = "text"
+                    input.style.display = "none"
+                    input.id = "input"
+                    input.placeholder = "Enter Your Updated Title"
+
+                    let update_btn = document.createElement("button")
+                    update_btn.innerHTML = "Update"
+                    update_btn.style.display = "none"
+                    update_btn.setAttribute("class", "update_btn")
+
+                    edit_btn.addEventListener("click", () => {
+                        input.style.display = "inline"
+                        update_btn.style.display = "inline"
+                    })
+                    update_btn.addEventListener("click", () => 
+                    {
+                        h3.innerHTML = input.value;
+                        input.style.display = "none";
+                        update_btn.style.display = "none";
+
+                        var rect = data_title.getBoundingClientRect();
+                        confetti({
+                            particleCount: 100,
+                            angle: 90,
+                            spread: 70,
+                            origin: 
+                            {
+                                x: (rect.left + rect.width / 2) / window.innerWidth,
+                                y: (rect.top + rect.height / 2) / window.innerHeight
+                            },
+                            gravity: 1,
+                            startVelocity: 30,
+                            ticks: 200
+                        })
+                    })
+
+                    data_title.append(h3, edit_btn, input, update_btn)
+                    break;
+                }
+            }
+        }
+    })
+
+    //Price
+    document.getElementById('dis_user').addEventListener('click', function() 
+    {
+        let userId = document.getElementById("user_id").value
+        let data_price = document.getElementById("data_price")
+        if(userId === "" || userId > 20)
+        {
+            data_title.innerHTML = "<h2>Invalid ID...</h2>"
+            data_title.style.textAlign = "left"
+            data_title.style.marginTop = "-20px"
+        }
+        else
+        {
+            data_price.style.border = "2px solid"
+            data_price.innerHTML = "<h1><u>Price</u></h1>"
+            data_title.style.marginTop = "0px"
+
+            for (let i = 0; i < arr.length; i++) 
+            {
+                if (arr[i].id == userId) 
+                {
+                    let h3 = document.createElement("h3")
+                    h3.innerHTML = arr[i].price
+
+                    edit_btn = document.createElement("button")
+                    edit_btn.innerHTML = "Edit"
+                    edit_btn.setAttribute("class", "edit_btn")
+
+                    let input = document.createElement("input")
+                    input.type = "text"
+                    input.style.display = "none"
+                    input.id = "input"
+                    input.placeholder = "Enter Your Updated Price"
+
+                    let update_btn = document.createElement("button")
+                    update_btn.innerHTML = "Update"
+                    update_btn.style.display = "none"
+                    update_btn.setAttribute("class", "update_btn")
+
+                    edit_btn.addEventListener("click", () => {
+                        input.style.display = "inline"
+                        update_btn.style.display = "inline"
+                    })
+                    update_btn.addEventListener("click", () => {
+                        h3.innerHTML = input.value
+                        input.style.display = "none"
+                        update_btn.style.display = "none"
+
+                        var rect = data_price.getBoundingClientRect();
+                        confetti({
+                            particleCount: 100,
+                            angle: 90,
+                            spread: 70,
+                            origin: 
+                            {
+                                x: (rect.left + rect.width / 2) / window.innerWidth,
+                                y: (rect.top + rect.height / 2) / window.innerHeight
+                            },
+                            gravity: 1,
+                            startVelocity: 30,
+                            ticks: 200
+                        })
+                    })
+
+                    data_price.append(h3, edit_btn, input, update_btn)
+                    break;
+                }
+            }
+        }
+    })
+
+    //Category
+    document.getElementById('dis_user').addEventListener('click', function() 
+    {
+        let userId = document.getElementById("user_id").value
+        let data_category = document.getElementById("data_category")
+        if(userId === "" || userId > 20)
+        {
+            data_title.innerHTML = "<h2>Invalid ID...</h2>"
+            data_title.style.textAlign = "left"
+            data_title.style.marginTop = "-20px"
+        }
+        else
+        {
+            data_category.style.border = "2px solid"
+            data_category.innerHTML = "<h1><u>Category</u></h1>"
+            data_title.style.marginTop = "0px"
+
+            for (let i = 0; i < arr.length; i++) 
+            {
+                if (arr[i].id == userId) 
+                {
+                    let h3 = document.createElement("h3")
+                    h3.innerHTML = arr[i].category
+
+                    edit_btn = document.createElement("button")
+                    edit_btn.innerHTML = "Edit"
+                    edit_btn.setAttribute("class", "edit_btn")
+
+                    let input = document.createElement("input")
+                    input.type = "text"
+                    input.style.display = "none"
+                    input.id = "input"
+                    input.placeholder = "Enter Your Updated Category"
+
+                    let update_btn = document.createElement("button")
+                    update_btn.innerHTML = "Update"
+                    update_btn.style.display = "none"
+                    update_btn.setAttribute("class", "update_btn")
+
+                    edit_btn.addEventListener("click", () => {
+                        input.style.display = "inline"
+                        update_btn.style.display = "inline"
+                    })
+                    update_btn.addEventListener("click", () => {
+                        h3.innerHTML = input.value
+                        input.style.display = "none"
+                        update_btn.style.display = "none"
+
+                        var rect = data_category.getBoundingClientRect();
+                        confetti({
+                            particleCount: 100,
+                            angle: 90,
+                            spread: 70,
+                            origin: 
+                            {
+                                x: (rect.left + rect.width / 2) / window.innerWidth,
+                                y: (rect.top + rect.height / 2) / window.innerHeight
+                            },
+                            gravity: 1,
+                            startVelocity: 30,
+                            ticks: 200
+                        })
+                    })
+
+                    data_category.append(h3, edit_btn, input, update_btn)
+                    break;
+                }
+            }
+        }
+    })
+
+    //Image
+    document.getElementById('dis_user').addEventListener('click', function() 
+    {
+        let userId = document.getElementById("user_id").value
+        let data_img = document.getElementById("data_img")
+        if(userId === "" || userId > 20)
+        {
+            data_title.innerHTML = "<h2>Invalid ID...</h2>"
+            data_title.style.textAlign = "left"
+            data_title.style.marginTop = "-20px"
+        }
+        else
+        {
+            data_img.style.border = "2px solid"
+            data_img.innerHTML = "<h1><u>Image</u></h1>"
+            data_title.style.marginTop = "0px"
+            
+            for (let i = 0; i < arr.length; i++) 
+            {
+                if (arr[i].id == userId) 
+                {
+                    let img = document.createElement("img")
+                    img.setAttribute("class", "img_size")
+                    img.src = arr[i].image
+
+                    edit_btn = document.createElement("button")
+                    edit_btn.innerHTML = "Edit"
+                    edit_btn.setAttribute("class", "edit_btn")
+
+                    let input = document.createElement("input")
+                    input.type = "text"
+                    input.style.display = "none"
+                    input.id = "input"
+                    input.placeholder = "Enter Any Image Source"
+
+                    let update_btn = document.createElement("button")
+                    update_btn.innerHTML = "Update"
+                    update_btn.style.display = "none"
+                    update_btn.setAttribute("class", "update_btn")
+
+                    edit_btn.addEventListener("click", () => {
+                        input.style.display = "inline"
+                        update_btn.style.display = "inline"
+                    })
+                    update_btn.addEventListener("click", () => {
+                        img.src = input.value
+                        input.style.display = "none"
+                        update_btn.style.display = "none"
+
+                        var rect = data_img.getBoundingClientRect();
+                        confetti({
+                            particleCount: 100,
+                            angle: 90,
+                            spread: 70,
+                            origin: 
+                            {
+                                x: (rect.left + rect.width / 2) / window.innerWidth,
+                                y: (rect.top + rect.height / 2) / window.innerHeight
+                            },
+                            gravity: 1,
+                            startVelocity: 30,
+                            ticks: 200
+                        })
+                    })
+
+                    data_img.append(img, edit_btn, input, update_btn)
+                    break;
+                }
+            }
+        }
+    })
+
+    //Rate
+    document.getElementById('dis_user').addEventListener('click', function() 
+    {
+        let userId = document.getElementById("user_id").value
+        let data_rate = document.getElementById("data_rate")
+        if(userId === "" || userId > 20)
+        {
+            data_title.innerHTML = "<h2>Invalid ID...</h2>"
+            data_title.style.textAlign = "left"
+            data_title.style.marginTop = "-20px"
+        }
+        else
+        {
+            data_rate.style.border = "2px solid"
+            data_rate.innerHTML = "<h1><u>Rate</u></h1>"
+            data_title.style.marginTop = "0px"
+
+            for (let i = 0; i < arr.length; i++) 
+            {
+                if (arr[i].id == userId) 
+                {
+                    let h3 = document.createElement("h3")
+                    h3.innerHTML = arr[i].rating.rate
+
+                    edit_btn = document.createElement("button")
+                    edit_btn.innerHTML = "Edit"
+                    edit_btn.setAttribute("class", "edit_btn")
+
+                    // <i class="fa-solid fa-star"></i>
+                    // <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    let icon_1 = document.createElement("i")
+                    let icon_2 = document.createElement("i")
+                    let icon_3 = document.createElement("i")
+                    let icon_4 = document.createElement("i")
+                    let icon_5 = document.createElement("i")
+
+                    icon_1.setAttribute("class", "fa-solid fa-star")
+                    icon_2.setAttribute("class", "fa-solid fa-star")
+                    icon_3.setAttribute("class", "fa-solid fa-star")
+                    icon_4.setAttribute("class", "fa-solid fa-star")
+                    icon_5.setAttribute("class", "fa-solid fa-star")
+
+                    icon_1.style.display = "none"
+                    icon_2.style.display = "none"
+                    icon_3.style.display = "none"
+                    icon_4.style.display = "none"
+                    icon_5.style.display = "none"
+
+                    let update_btn = document.createElement("button")
+                    update_btn.innerHTML = "Update"
+                    update_btn.style.display = "none"
+                    update_btn.setAttribute("class", "update_btn")
+
+                    edit_btn.addEventListener("click", () => {
+                        icon_1.style.display = "inline"
+                        icon_2.style.display = "inline"
+                        icon_3.style.display = "inline"
+                        icon_4.style.display = "inline"
+                        icon_5.style.display = "inline"
+
+                        update_btn.style.display = "inline"
+                    })
+                    let count = 0
+                    icon_1.addEventListener("click", () => 
+                    {
+                        icon_1.style.color = "#FFD43B";
+                        count++;
+                    })
+                    icon_2.addEventListener("click", () => 
+                    {
+                        icon_2.style.color = "#FFD43B";
+                        count++;
+                    })
+                    icon_3.addEventListener("click", () => 
+                    {
+                        icon_3.style.color = "#FFD43B";
+                        count++;
+                    })
+                    icon_4.addEventListener("click", () => 
+                    {
+                        icon_4.style.color = "#FFD43B";
+                        count++;
+                    })
+                    icon_5.addEventListener("click", () => 
+                    {
+                        icon_5.style.color = "#FFD43B";
+                        count++;
+                    })
+
+                    update_btn.addEventListener("click", () => {
+                        h3.innerHTML = count
+                        update_btn.style.display = "none"
+
+                        icon_1.style.display = "none"
+                        icon_2.style.display = "none"
+                        icon_3.style.display = "none"
+                        icon_4.style.display = "none"
+                        icon_5.style.display = "none"
+
+                        var rect = data_rate.getBoundingClientRect();
+                        confetti({
+                            particleCount: 100,
+                            angle: 90,
+                            spread: 70,
+                            origin: 
+                            {
+                                x: (rect.left + rect.width / 2) / window.innerWidth,
+                                y: (rect.top + rect.height / 2) / window.innerHeight
+                            },
+                            gravity: 1,
+                            startVelocity: 30,
+                            ticks: 200
+                        })
+                    })
+
+                    data_rate.append(h3, edit_btn, icon_1, icon_2, icon_3, icon_4, icon_5 , update_btn)
+                    break;
+                }
+            }
+        }
+    })
+
+</script>

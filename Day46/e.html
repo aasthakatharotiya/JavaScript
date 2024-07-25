@@ -1,0 +1,188 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+@keyframes bang {
+  from {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+
+body {
+  background: #333;
+  display: flex;
+}
+
+button {
+  width: 240px;
+  font-size: 1.2em;
+  margin:150px auto 0;
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  position: relative;
+  color: #333;
+  i {
+    animation: bang 750ms ease-out forwards;
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 8px;
+    opacity: 0;
+  }
+
+}
+</style>
+<body>
+    <button> 
+        Click for confetti
+      </button>
+</body>
+</html>
+
+<script>
+const confettiAmount = 100;
+let btnClick = document.querySelector('button');
+let btnHover = document.querySelector('.hoverme');
+
+btnClick.onclick = () => throwConfetti(btnClick);
+btnHover.onmousemove = () => throwConfetti(btnHover);
+
+function throwConfetti(btn) {
+  
+  let df = document.createDocumentFragment();
+  for (let i=0; i<confettiAmount; i++) {
+    let c = document.createElement("i");
+    c.style.cssText = `
+      transform: translate3d(${(random(500) - 250)}px, ${(random(225) - 150)}px, 0)
+      rotate(${ random(360) }deg); 
+      background: hsla(${random(360)},100%,50%,1);
+    `;
+    df.appendChild(c);
+    setTimeout(()=> {
+      c.remove();
+    }, 2000)  
+  } 
+  btn.appendChild(df);
+
+}
+
+function random(max){
+  return Math.random() * (max - 0) + 0;
+}
+</script> -->
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confetti Rain Button</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  <style>
+    .update_btn {
+      position: relative;
+      margin: 10px;
+    }
+    .edit_btn {
+      position: relative;
+      margin: 10px;
+    }
+    #data_title{
+      width: 50%;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="user_id" placeholder="Enter User ID">
+  <button id="dis_user">Display User</button>
+  <div id="data_title"></div>
+
+  <script>
+    const arr = [
+      { id: 1, title: "Title 1" },
+      { id: 2, title: "Title 2" },
+      { id: 3, title: "Title 3" },
+      // Add more objects with ids and titles as needed
+    ];
+
+    document.getElementById('dis_user').addEventListener('click', function() {
+      let userId = document.getElementById("user_id").value;
+      let data_title = document.getElementById("data_title");
+
+      if (userId === "" || userId > 20) {
+        data_title.innerHTML = "";
+        return;
+      }
+
+      data_title.style.border = "2px solid";
+      data_title.innerHTML = "<h1><u>Title</u></h1>";
+
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i].id == userId) {
+          let h3 = document.createElement("h3");
+          h3.innerHTML = arr[i].title;
+
+          let edit_btn = document.createElement("button");
+          edit_btn.innerHTML = "Edit";
+          edit_btn.setAttribute("class", "edit_btn");
+
+          let input = document.createElement("input");
+          input.type = "text";
+          input.style.display = "none";
+          input.id = "input";
+          input.placeholder = "Enter Your Updated Title";
+
+          let update_btn = document.createElement("button");
+          update_btn.innerHTML = "Update";
+          update_btn.style.display = "none";
+          update_btn.setAttribute("class", "update_btn");
+
+          edit_btn.addEventListener("click", () => {
+            input.style.display = "inline";
+            update_btn.style.display = "inline";
+          });
+
+          update_btn.addEventListener("click", (event) => {
+            h3.innerHTML = input.value;
+            input.style.display = "none";
+            update_btn.style.display = "none";
+
+            // Confetti rain animation from the top of the data_title div
+            var rect = data_title.getBoundingClientRect();
+            confetti({
+              particleCount: 100,
+              angle: 90,
+              spread: 70,
+              origin: {
+                x: (rect.left + rect.width / 2) / window.innerWidth,
+                y: rect.top / window.innerHeight
+              },
+              gravity: 1,
+              startVelocity: 30,
+              ticks: 200
+            });
+          });
+
+          data_title.append(h3, edit_btn, input, update_btn);
+          break;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
