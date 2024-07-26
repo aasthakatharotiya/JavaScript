@@ -1,0 +1,43 @@
+#main {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#disp_slider{
+    display: none;
+    height: 100vh;
+}
+#slider {
+    height: 70%;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 6%;
+}
+#slide {
+    height: 100%;
+    margin: 10px;
+    width: 40%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+#slide img {
+    height: 100%;
+    width: 100%;
+}
+h1{
+    font-size: 100px;
+    animation: scale2 2s infinite;
+    transition: all 10s ease-in-out;
+}
+@keyframes scale2 {
+    0% {transform: scale(2);
+    }
+    50% {transform: scale(1.5);
+    }
+    100% {transform: scale(0.8);
+    }
+}
