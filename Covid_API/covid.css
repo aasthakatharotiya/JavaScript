@@ -1,0 +1,70 @@
+body {
+    height: 100vh;
+    width: 100%;
+    /* border: 2px solid; */
+    /* background-image: url('https://cdn.dribbble.com/users/2172077/screenshots/10825918/media/90ce5192b5f81f6e3ba380a94960988b.gif'); */
+    /* background-image: url('https://media.npr.org/assets/img/2020/04/10/covid_asymptomic_NPR_10Apr.gif'); */
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/03/Covid-19-Breaking-bubbles-02.gif');
+    background-size: 100% 110%;
+    /* background-size: 100% 100%; */
+    background-repeat: no-repeat;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#bg_color{
+    display: none;
+    /* background: linear-gradient(rgb(0,0,0,0.5), rgb(0,0,0,0.5), rgb(0,0,0,0.5));
+    padding: 20px;
+    border-radius: 20px;
+    color: white; */
+}
+#main {
+    width: 50%;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* background: linear-gradient(rgb(0,0,0,0.4), rgb(0,0,0,0.4), rgb(0,0,0,0.4)); */
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 50px auto;
+}
+.color{
+    color: orange;
+}
+
+.head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* color: rgb(255, 0, 115); */
+}
+input{
+    height: 40px;
+    font-size: 18px;
+    padding-top: 4px;
+    padding-left: 10px;
+}
+button{
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    background-color: rgb(250, 3, 98);
+    color: white;
+    border: none;
+}
+button:hover{
+    border: 3px solid rgb(250, 3, 98);
+    color: rgb(250, 3, 98);
+    font-weight: bolder;
+    background: none;
+}
