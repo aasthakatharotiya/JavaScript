@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <center>
+        <h1 class="head">
+            Enter a City Name : &nbsp;
+            <input type="text" id="city_name" placeholder="Enter city name...">&nbsp;
+            <button id="submit">Submit</button>
+        </h1>
+    </center>
+    <div id="main"></div>
+</body>
+</html>
+<script>
+
+
+document.getElementById("submit").addEventListener("click", function() {
+    let cityName = document.getElementById("city_name").value.toUpperCase();
+
+    fetch('https://data.covid19india.org/v4/min/data.min.json')
+    .then(res => res.json())
+    .then(json => {
+        console.clear();
+        console.log(json);
+        displayData(json, cityName);
+    })
+    .catch(error => console.log('Error Fetching The Covid Data:', error));
+});
+
+function displayData(json, cityName) {
+    let main = document.getElementById("main");
+    main.innerHTML = "";
+
+    let full_form = cityName; // Assuming full_form is derived from cityName in some manner
+
+    let div = document.createElement("div");
+
+    let name = document.createElement("p");
+    name.innerHTML = `<b class="color">City Name: </b> ${full_form}`;
+
+    let tested = document.createElement("p");
+    tested.innerHTML = `<b class="color">Tested : </b> ${json[cityName].total.tested}`;
+
+    let confirmed = document.createElement("p");
+    confirmed.innerHTML = `<b class="color">Confirmed : </b> ${json[cityName].total.confirmed}`;
+
+    let vaccinated1 = document.createElement("p");
+    vaccinated1.innerHTML = `<b class="color">Vaccinated1 : </b> ${json[cityName].total.vaccinated1}`;
+
+    let vaccinated2 = document.createElement("p");
+    vaccinated2.innerHTML = `<b class="color">Vaccinated2 : </b> ${json[cityName].total.vaccinated2}`;
+
+    let recovered = document.createElement("p");
+    recovered.innerHTML = `<b class="color">Recovered : </b> ${json[cityName].total.recovered}`;
+
+    div.append(name, tested, confirmed, vaccinated1, vaccinated2, recovered);
+    main.appendChild(div);
+
+    let data = {
+        labels: ['', '', '', '', ''],
+        datasets: [{
+            data: [json[cityName].total.tested, json[cityName].total.confirmed, json[cityName].total.vaccinated1, json[cityName].total.vaccinated2, json[cityName].total.recovered],
+            backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+            borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(153, 102, 255, 1)'],
+            borderWidth: 1
+        }]
+    };
+
+    let config = {
+        type: 'bar',
+        data: data,
+        options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            scales: {
+                x: { display: false },
+                y: { display: false }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: { enabled: false }
+            }
+        }
+    };
+
+    let canvas = document.createElement('canvas');
+    canvas.width = 100;
+    canvas.height = 100;
+    main.appendChild(canvas);
+
+    new Chart(canvas.getContext('2d'), config);
+}
+
+
+
+// document.getElementById("submit").addEventListener("click", function() 
+// {
+//     let city_name = document.getElementById("city_name").value.toUpperCase()
+
+//     fetch(`https://data.covid19india.org/v4/min/data.min.json`)
+//     .then(res => res.json())
+//     .then(json => 
+//     {
+//         console.clear()
+//         console.log(json)
+//         displayData(json, city_name)
+//     })
+//     .catch(error => 
+//     {
+//         console.log('Error Fetching The Covid Data:', error)
+//     })
+// })
+
+// function displayData(json, city_name) 
+// {
+//     let div = document.createElement("div")
+//     document.getElementById("main").innerHTML = ""
+
+//     let tested = document.createElement("p")
+//     tested.innerHTML = `<b class = "color">Tested : </b> ${json[city_name].delta.tested}`
+
+//     let confirmed = document.createElement("p")
+//     confirmed.innerHTML = `<b class = "color">Confirmed : </b> ${json[city_name].total.confirmed}`
+
+//     let vaccinated1 = document.createElement("p")
+//     vaccinated1.innerHTML = `<b class = "color">Vaccinated1 : </b> ${json[city_name].delta7.vaccinated1}`
+
+//     let vaccinated2 = document.createElement("p")
+//     vaccinated2.innerHTML = `<b class = "color">Vaccinated2 : </b> ${json[city_name].delta7.vaccinated2}`
+
+//     let recovered = document.createElement("p")
+//     recovered.innerHTML = `<b class = "color">Recovered : </b> ${json[city_name].total.recovered}`
+
+//     div.append(name, tested, vaccinated1, vaccinated2)
+//     document.getElementById("main").append(div)
+// }
+// in this code display graph according to 
+
+</script>
