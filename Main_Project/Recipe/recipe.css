@@ -1,0 +1,158 @@
+body {
+    height: 100vh;
+    width: 100%;
+    color: white;
+    /* border: 2px solid; */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://png.pngtree.com/thumb_back/fw800/background/20230722/pngtree-3d-rendering-of-a-wooden-coffee-shop-or-restaurant-design-image_3854404.jpg'); */
+    /* background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://png.pngtree.com/background/20231030/original/pngtree-3d-rendering-of-a-rustic-wood-designed-restaurant-or-cafe-picture-image_5798024.jpg'); */
+    /* background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://img.pikbest.com/wp/202342/cafe-menu-design-3d-illustration-of-architectural-for-a-with-banner-and-mockup_9861328.jpg!w700wp'); */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://png.pngtree.com/background/20231016/original/pngtree-d-illustration-of-architectural-design-for-a-coffee-shop-lounge-with-picture-image_5582903.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.img_fixed_bottom{
+    height: 200px;
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+}
+::placeholder{
+    color: white;
+}
+input{
+    background: none;
+    height: 43px;
+    font-size: 18px;
+    padding-top: 4px;
+    padding-left: 10px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 3px solid rgb(207,125,65);
+    /* background: linear-gradient(rgb(251, 250, 250, 0.5), rgb(251, 250, 250, 0.5), rgb(251, 250, 250, 0.5));
+    border: none; */
+    
+    /* background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    border: none;
+    color: white; */
+}
+button{
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: rgb(207,125,65);
+    color: white;
+    border: none;
+}
+button:hover{
+    border: 3px solid rgb(207,125,65);
+    color: rgb(207,125,65);
+    font-weight: bolder;
+    background: none;
+}
+.color{
+    color: rgb(207,125,65);
+    font-size: 22px;
+    /* font-weight: bolder; */
+}
+
+.main_div {
+    margin-top: 30px;
+    border: 2px solid rgb(207,125,65);
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    border-radius: 10px;
+    width: fit-content;
+    padding: 10px;
+    overflow: hidden;
+}
+.flex_div {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+}
+.img {
+    height: 100%;
+    width: 350px;
+    border-radius: 10px;
+}
+.text_div {
+    display: flex;
+    flex-direction: column;
+}
+.select_flex{
+    margin-top: 10px;
+}
+.select {
+    height: 40px;
+}
+.input_flex{
+    margin-top: 10px;
+}
+.edit_input{
+    height: 37px;
+    color: white;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border: 2px solid rgb(207,125,65);
+    border-radius: 5px;
+}
+.update_btn{
+    height: 45px;
+    background-color: rgb(207,125,65);
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-radius: 5px;
+}
+.update_btn:hover{
+    border: 2px solid rgb(207,125,65);
+    color: rgb(207,125,65);
+}
+
+
+.btn_css{
+    height: 45px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgb(207,125,65);
+    color: white;
+    border: none;
+}
+/* .btn_css:hover{
+    padding-left: 25px;
+    padding-right: 25px;
+    transition: 1s;
+    border: none;
+    background: linear-gradient(rgb(250, 3, 98, 0.5), rgb(250, 3, 98, 0.5), rgb(250, 3, 98, 0.5));
+} */
+.edit_css{
+    height: 45px;
+    display: block;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: rgb(2, 162, 2);
+    margin-top: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-radius: 5px;
+}
+.edit_css:hover{
+    border: 2px solid rgb(2, 162, 2);
+    color: rgb(2, 162, 2);
+}
+
+#select{
+    height: 40px;
+    margin-top: 20px;
+}
+

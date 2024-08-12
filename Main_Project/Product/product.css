@@ -1,0 +1,54 @@
+body {
+    height: 100vh;
+    width: 100%;
+    color: white;
+    /* border: 2px solid; */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://cdn.dribbble.com/users/1771704/screenshots/8217324/media/ce362f35dbeeee6dcf7da231242da387.gif');
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cdn.dribbble.com/users/2287419/screenshots/15154728/media/e16ce263cc62937e48bc9d44dd795c47.gif'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://static.wixstatic.com/media/8c40cc_8ae9b01949204b21b4fdbcc418306df2~mv2.gif'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://media.licdn.com/dms/image/D4D12AQGJmiWMTKIvDA/article-cover_image-shrink_720_1280/0/1687494668967?e=2147483647&v=beta&t=zyZUwBxD1TQkKqtmkDj9-xWMBL9HOOVr0ekEcIxkNxQ'); */
+    background-repeat: no-repeat;
+    background-size: 100% 108%;
+}
+.bg_color{
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    padding: 20px;
+    border-radius: 20px;
+}
+#product_input{
+    background: none;
+    color: white;
+    height: 50px;
+    font-size: 18px;
+    padding-top: 4px;
+    padding-left: 10px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 3px solid rgb(250, 3, 98);
+}
+#product_input option{
+    background-color: rgb(76, 76, 76);
+}
+button{
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: rgb(250, 3, 98);
+    color: white;
+    border: none;
+}
+button:hover{
+    border: 3px solid rgb(250, 3, 98);
+    color: rgb(250, 3, 98);
+    font-weight: bolder;
+    background: none;
+}

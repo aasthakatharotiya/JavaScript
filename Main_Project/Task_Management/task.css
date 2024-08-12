@@ -1,0 +1,214 @@
+body {
+    height: 100vh;
+    width: 100%;
+    /* color: white; */
+    /* border: 2px solid; */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.prismic.io/smarttask/8ba97070-d140-4232-8695-1728b83f2ff0_Work+Breakdown+Structure.gif?auto=compress,format'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.orangescrum.com/img/home/pm-collaboratation.gif'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://awzpact.com/uploads/editor/Project%20management%20consultancy.gif'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://miro.medium.com/v2/resize:fit:1400/1*5YZ0iRIg34qXgH5ja5nNbA.gif'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://media.licdn.com/dms/image/C4D12AQH3moW8i3ewrw/article-cover_image-shrink_600_2000/0/1628589993746?e=2147483647&v=beta&t=x0r-d-0VMlcRA_l3hQGm6RBCel5ZrQrV1KkIE6N167g'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.pinimg.com/originals/6d/12/aa/6d12aaf79e6e63db76eb5e04cc7f4852.gif'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cdnl.iconscout.com/lottie/premium/thumb/teamwork-web-design-5513360-4625684.gif'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cdn.prod.website-files.com/620b4dfc30add2618d5e13a5/622b59722f466c91637420f4_Event-Planning-Group.gif'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.pinimg.com/originals/32/9b/63/329b63886c58f6f4915b8642f52ec8b3.gif'); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(''); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(''); */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cdn.dribbble.com/users/1319343/screenshots/14584578/media/e6517d247bf8d46e0a9b722b8894023d.gif'); */
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://static.wixstatic.com/media/fd789c_fce3e7c026834676b12d411687979479~mv2.gif/v1/fit/w_320%2Ch_600%2Cal_c%2Cq_80,enc_auto/file.gif');
+    background-repeat: no-repeat;
+    background-size: 100% 140%;
+    background-position: center;
+}
+
+select{
+    background: none;
+    height: 50px;
+    font-size: 18px;
+    padding-top: 4px;
+    padding-left: 10px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 3px solid rgb(255, 136, 0);
+}
+button{
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: rgb(255, 136, 0);
+    color: white;
+    border: none;
+}
+button:hover{
+    border: 3px solid rgb(255, 136, 0);
+    color: rgb(255, 136, 0);
+    font-weight: bolder;
+    background: none;
+}
+.color{
+    color: rgb(255, 136, 0);
+    font-size: 22px;
+}
+#task_select{
+    color: white;
+    /* color: rgb(255, 229, 180); */
+    border: 3px solid rgb(255, 136, 0);
+    /* background-color: transparent; */
+}
+#task_select option{
+    height: 100px;
+    background-color: grey;
+}
+.border_main{
+    border: 2px dashed rgb(255, 136, 0);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+}
+#bg{
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+}
+.main_div{
+    width: fit-content;
+    gap: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.div_left{
+    text-align: left;
+    /* border: 2px solid yellow; */
+
+    .img{
+        border-radius: 50%;
+        height: 150px;
+    }
+}
+.div_right{
+    /* border: 2px solid red; */
+    text-align: left;
+    width: 400px;
+}
+.text_color{
+    color: rgb(255, 136, 0);
+}
+.chart_color{
+    /* color: rgb(250, 3, 98); */
+    color: rgb(2, 162, 2);
+}
+.ans_color{
+    /* color: red; */
+    font-size: 20px;
+}
+
+
+
+.outer_graph{
+    height: 100%;
+    width: 18%;
+    display: flex;
+    align-items: end;
+    overflow: hidden;
+}
+.graph_main{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.graph
+{
+    height: 100px;
+    width: 120px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.edit_css{
+    height: 45px;
+    display: block;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: rgb(2, 162, 2);
+    margin-top: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-radius: 5px;
+}
+.edit_css:hover{
+    border: 2px solid rgb(2, 162, 2);
+    color: rgb(2, 162, 2);
+}
+
+.flex_div {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+}
+.select_flex{
+    margin-top: 10px;
+    /* border: 2px solid; */
+    width: 430px;
+    color: rgb(255, 136, 0);
+    font-size: 18px;   
+
+    .select {
+        height: 40px;
+        border: 2px solid rgb(255, 136, 0);
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-radius: 10px;
+        color: white;
+    }
+    .select option{
+        background-color: black;
+    }
+}
+
+.input_flex{
+    margin-top: 5px;
+    /* border: 2px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit_input{
+    height: 37px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border: 2px solid rgb(255, 136, 0);
+    border-radius: 5px;
+    background: none;
+    color: white;
+    font-size: 20px;
+}
+.update_btn{
+    height: 45px;
+    background-color: rgb(255, 136, 0);
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-radius: 5px;
+}
+.update_btn:hover{
+    border: 2px solid rgb(255, 136, 0);
+    color: rgb(255, 136, 0);
+}

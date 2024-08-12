@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="add_to_cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<!-- <style>
+    body {
+        height: 100vh;
+        width: 100%;
+        /* border: 2px solid; */
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    #fix_pos{
+        position: fixed;
+        top: 0%;
+        right: 0%;
+        margin: 20px;
+        font-size: 30px;
+    }
+    #shopping{
+        visibility: hidden;
+        width: 0%;
+        height: 99.5vh;
+        /* border: 2px solid red; */
+        /* width: 30%; */
+        position: fixed;
+        top: 0%;
+        right: 0%;
+        background-color: black;
+        color: white;
+    }
+    #cross{
+        position: fixed;
+        top: 0%;
+        right: 0%;
+        margin: 20px;
+        font-size: 30px;
+    }
+</style> -->
+<body>
+    <!-- <i class="fa-solid fa-cart-shopping" id="fix_pos"></i>
+    <div id="shopping">
+        <i class="fa-solid fa-xmark" id="cross"></i>
+        <table>
+            <tbody>
+           
+            </tbody>
+          </table>
+    </div> -->
+
+    <div class="fix_pos" id="fix_pos">
+        <button>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="tooltip">View Cart</span>
+        </button>
+    </div>
+    <div id="shopping" class="shopping">
+        <button id="cross" class="cross">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <table class="table">
+            <tbody>
+                <!-- Cart items will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<!-- <script>
+    document.getElementById("fix_pos").addEventListener("click", function(){
+        document.getElementById("shopping").style.visibility = "visible"
+        document.getElementById("shopping").style.width = "30%"
+        document.getElementById("shopping").style.transition = "1s"
+        document.getElementById("fix_pos").style.visibility = "hidden"
+    })
+
+    document.getElementById("cross").addEventListener("click", function(){
+        document.getElementById("shopping").style.visibility = "hidden"
+        document.getElementById("shopping").style.width = "0%"
+        document.getElementById("shopping").style.transition = "1s"
+        document.getElementById("fix_pos").style.visibility = "visible"
+    })
+</script> -->

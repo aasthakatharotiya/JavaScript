@@ -1,0 +1,416 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Webpage</title>
+    <style>
+        body {
+            background-color: #1F1F1F;
+            color: #E0E0E0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #2C2C2C;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 275px;
+            text-align: center;
+            padding: 10px;
+            color: #E0E0E0;
+        }
+
+        .product img {
+            height: 200px;
+            width: 200px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product h4 {
+            margin: 10px 0;
+            font-size: 1.25rem;
+            color: #00BFAE;
+        }
+
+        .product p {
+            margin: 10px 0;
+        }
+
+        .product input {
+            height: 30px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+            padding-left: 10px;
+            margin: 10px 0;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .product button {
+            height: 30px;
+            width: 80px;
+            font-size: 12px;
+            border-radius: 5px;
+            border: none;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        .product button#edit-btn {
+            background-color: #00BFAE;
+        }
+
+        .product button#update-btn {
+            background-color: #FF5722;
+        }
+
+        .product button#delete-btn {
+            background-color: #FF4444;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+        let arr = [
+            {
+                "idCategory": "1",
+                "strCategory": "Beef",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/beef.png",
+                "strCategoryDescription": "Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistoric times. Beef is a source of high-quality protein and essential nutrients."
+            },
+            {
+                "idCategory": "2",
+                "strCategory": "Chicken",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/chicken.png",
+                "strCategoryDescription": "Chicken is a type of domesticated fowl, a subspecies of the red junglefowl. It is one of the most common and widespread domestic animals, with a total population of more than 19 billion as of 2011. Humans commonly keep chickens as a source of food and, more rarely, as pets."
+            },
+            {
+                "idCategory": "3",
+                "strCategory": "Dessert",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/dessert.png",
+                "strCategoryDescription": "Dessert is a course that concludes a meal. The course usually consists of sweet foods, such as confections dishes or fruit, and possibly a beverage such as dessert wine or liqueur. The term dessert can apply to many confections, such as biscuits, cakes, cookies, custards, gelatins, ice creams, pastries, pies, puddings, and sweet soups."
+            },
+            {
+                "idCategory": "4",
+                "strCategory": "Lamb",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/lamb.png",
+                "strCategoryDescription": "Lamb, hogget, and mutton are the meat of domestic sheep at different ages. A sheep in its first year is called a lamb, and its meat is also called lamb. The meat of a juvenile sheep older than one year is hogget. The meat of an adult sheep is mutton."
+            },
+            {
+                "idCategory": "5",
+                "strCategory": "Miscellaneous",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/miscellaneous.png",
+                "strCategoryDescription": "General foods that don't fit into another category."
+            },
+            {
+                "idCategory": "6",
+                "strCategory": "Pasta",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/pasta.png",
+                "strCategoryDescription": "Pasta is a staple food of traditional Italian cuisine. Pasta is typically a noodle made from an unleavened dough of durum wheat flour mixed with water or eggs, formed into sheets or various shapes, then cooked by boiling or baking."
+            },
+            {
+                "idCategory": "7",
+                "strCategory": "Pork",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/pork.png",
+                "strCategoryDescription": "Pork is the culinary name for meat from a domestic pig. It is the most commonly consumed meat worldwide. Pork is eaten both freshly cooked and preserved. Curing extends the shelf life of the pork products."
+            },
+            {
+                "idCategory": "8",
+                "strCategory": "Seafood",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/seafood.png",
+                "strCategoryDescription": "Seafood is any form of sea life regarded as food by humans. Seafood prominently includes fish and shellfish. Shellfish include various species of molluscs, crustaceans, and echinoderms."
+            },
+            {
+                "idCategory": "9",
+                "strCategory": "Side",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/side.png",
+                "strCategoryDescription": "A side dish is a food item that accompanies the entrée or main course at a meal. Side dishes such as salad, potatoes, and bread are commonly used with main courses throughout many countries."
+            },
+            {
+                "idCategory": "10",
+                "strCategory": "Starter",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/starter.png",
+                "strCategoryDescription": "An entrée in modern French table service is a dish served before the main course of a meal. It may be the first dish served, or it may follow a soup or other small dish or dishes."
+            },
+            {
+                "idCategory": "11",
+                "strCategory": "Vegan",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/vegan.png",
+                "strCategoryDescription": "Veganism is both the practice of abstaining from the use of animal products, particularly in diet, and an associated philosophy that rejects the commodity status of animals."
+            },
+            {
+                "idCategory": "12",
+                "strCategory": "Vegetarian",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/vegetarian.png",
+                "strCategoryDescription": "Vegetarianism is the practice of abstaining from the consumption of meat and may also include abstention from by-products of animal slaughter."
+            },
+            {
+                "idCategory": "13",
+                "strCategory": "Breakfast",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/breakfast.png",
+                "strCategoryDescription": "Breakfast is the first meal of a day. The word in English refers to breaking the fasting period of the previous night."
+            },
+            {
+                "idCategory": "14",
+                "strCategory": "Goat",
+                "strCategoryThumb": "https://www.themealdb.com/images/category/goat.png",
+                "strCategoryDescription": "The domestic goat is a subspecies of the wild goat. Goats are one of the oldest domesticated species of animal and have been used for milk, meat, fur, and skins across much of the world."
+            }
+        ];
+
+        function DisplayData() {  
+            let div = document.getElementById("main");
+            div.innerHTML = '';
+
+            arr.forEach((el, index) => {
+                let productDiv = document.createElement("div");
+                productDiv.className = "product";
+                
+                let picture = document.createElement("img");
+                picture.setAttribute("src", el.strCategoryThumb);
+
+                let titleElement = document.createElement("h4");
+                titleElement.innerText = el.strCategory;
+                
+                let descriptionElement = document.createElement("p");
+                descriptionElement.innerText = el.strCategoryDescription;
+
+                let input = document.createElement("input");
+                input.setAttribute("id", `input-${index}`);
+                
+                let editButton = document.createElement("button");
+                editButton.innerText = "Edit";
+                editButton.setAttribute("id", "edit-btn");
+                editButton.addEventListener("click", () => {
+                    EditData(el.strCategoryDescription, index);
+                });
+                
+                let updateButton = document.createElement("button");
+                updateButton.innerText = "Update";
+                updateButton.setAttribute("id", "update-btn");
+                updateButton.addEventListener("click", () => {
+                    UpdateData(index, input.id, descriptionElement);
+                });
+
+                let deleteButton = document.createElement("button");
+                deleteButton.innerText = "Delete";
+                deleteButton.setAttribute("id", "delete-btn");
+                deleteButton.addEventListener("click", () => {
+                    DeleteData(index, productDiv);
+                });
+                
+                let buttonContainer = document.createElement("div");
+                buttonContainer.className = "button-container";
+                buttonContainer.append(editButton, updateButton, deleteButton);
+
+                productDiv.append(picture, titleElement, descriptionElement, input, buttonContainer);
+                div.append(productDiv);
+            });
+        }
+
+        function EditData(description, index) {
+            let input = document.getElementById(`input-${index}`);
+            input.value = description;
+        } 
+
+        function UpdateData(index, inputId, descriptionElement) {
+            let input = document.getElementById(inputId);
+            descriptionElement.innerText = input.value;
+            arr[index].strCategoryDescription = input.value;
+        }
+
+        function DeleteData(index, productDiv) {
+            arr.splice(index, 1);
+            productDiv.remove();
+            DisplayData(); // Refresh the display to update indices
+        }
+
+        DisplayData();
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK MANAGE</title>
+    <!-- <link rel="stylesheet" href="task.css"> -->
+</head>
+<body>
+    <center>
+        <h1>Task Manage</h1>
+    </center>
+    <div id="main">
+        <div id="sec-1">
+            <form action="">
+                <h3>
+                    <label for="">Enter Task :- </label>
+                    <input id="task" type="text" id="task"> <br>
+
+
+                    <label for="">Priority :- </label>
+                    <select id="priority">
+                        <option value="pr">Priority</option>
+                        <option value="High">High</option>
+                        <option value="Meduim">Meduim</option>
+                        <option value="Low">Low</option>
+                    </select>
+                    <br>
+
+
+                    <label for=""> Course Duration :- </label>
+                    <input type="number" id="duration"> 
+
+
+<!-- 
+                    <input  type="checkbox">
+                    <label for="">Favourite</label>
+                    <br>
+ -->
+
+                    <input itemid="submit" type="submit" id="submit">
+                    <button id="update" style="display: none;">update</button>
+                
+                </h3>   
+            
+            </form>
+        </div>
+        <div id="sec-1">
+            <table>
+                <!-- Dont change order of columns -->
+                <thead>
+                  <tr>
+                    <th>Task</th>
+                    <th>Priority</th>
+                    <th>Duration</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <!-- Append your output to tbody -->
+                </tbody>
+              </table>
+        
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.getElementById("submit").addEventListener("click", function(event) {
+    event.preventDefault()
+
+    let task = document.getElementById("task").value
+    let pr = document.getElementById("priority").value
+    let duration = document.getElementById("duration").value
+
+    let tr = document.createElement("tr")
+
+    let td1 = document.createElement("td")
+    td1.innerHTML = task
+
+    let td2 = document.createElement("td")
+    td2.innerHTML = pr
+
+    let td3 = document.createElement("td")
+    td3.innerHTML = duration
+
+    let td4 = document.createElement("td")
+    
+    let deleteBtn = document.createElement("button")
+    deleteBtn.innerText = "Delete"
+
+    deleteBtn.addEventListener("click", function() {
+        tr.remove()
+    })
+
+    let editBtn = document.createElement("button")
+    editBtn.innerText = "Edit"
+
+    let update = document.getElementById("update")
+    let submit = document.getElementById("submit")
+
+    editBtn.addEventListener("click", function() {
+
+        document.getElementById("task").value = task
+        document.getElementById("priority").value = pr
+        document.getElementById("duration").value = duration
+
+        
+        update.style.display = "inline"
+        submit.style.display="none"
+
+
+    })
+    update.addEventListener("click",function()
+    {
+        let updatedTask = document.getElementById("task").value
+        let updatedPriority = document.getElementById("priority").value
+        let updatedDuration = document.getElementById("duration").value
+
+        td1.innerHTML = updatedTask
+        td2.innerHTML = updatedPriority
+        td3.innerHTML = updatedDuration
+
+        document.getElementById("task").value = ""
+        document.getElementById("priority").value = ""
+        document.getElementById("duration").value = ""
+        document.getElementById("update").style.display = "none"
+        document.getElementById("submit").style.display = "inline"
+
+    update.style.display = "none"
+        submit.style.display="inline"
+    })
+
+    td4.append(deleteBtn)
+    td4.append(editBtn)
+
+    tr.append(td1, td2, td3, td4)
+    document.querySelector("tbody").append(tr)
+
+    document.getElementById("task").value = ""
+    document.getElementById("priority").value = ""
+    document.getElementById("duration").value = ""
+})
+</script>
