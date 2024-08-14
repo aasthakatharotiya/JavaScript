@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="task.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <center>
+        <h1 id="bg">
+            Select Any Task Name : 
+            <select name="" id="task_select">
+                <option value="">Select Appropriate Option</option>
+                
+                <!--1 aastha -->
+                <option value="Complete Project Report">Complete Project Report</option>
+                <!--2 aashi -->
+                <option value="Team Meeting">Team Meeting</option>
+                <!--3 harmi -->
+                <option value="Code Review">Code Review</option>
+                <!--4 komal -->
+                <option value="Client Presentation">Client Presentation</option>
+                <!--5 bhakti -->
+                <option value="Design Mockups">Design Mockups</option>
+                <!--6 mansi -->
+                <option value="Database Backup">Database Backup</option>
+                <!--7 hetvi -->
+                <option value="Update Documentation">Update Documentation</option>
+                <!--8 vishva -->
+                <option value="Bug Fixes">Bug Fixes</option>
+                <!--9 priya -->
+                <option value="Deploy to Production">Deploy to Production</option>
+                <!--10 dara -->
+                <option value="User Training">User Training</option>
+                <!--11 purva -->
+                <option value="Feedback Review">Feedback Review</option>
+                <!--12 meera -->
+                <option value="Create Marketing Plan">Create Marketing Plan</option>
+                <!--13 manu -->
+                <option value="Customer Support">Customer Support</option>
+                <!--14 rajeshree mam -->
+                <option value="Security Audit">Security Audit</option>
+                <!--15 timpal mam -->
+                <option value="Performance Testing">Performance Testing</option>
+                <!--16 jigna mam -->
+                <option value="Update Software">Update Software</option>
+                <!--17 anila mam -->
+                <option value="Data Analysis">Data Analysis</option>
+                <!--18 chandni mam -->
+                <option value="Market Research">Market Research</option>
+                <!--19 govrav sir -->
+                <option value="Network Maintenance">Network Maintenance</option>
+                <!--20 harshad sir -->
+                <option value="Research New Technologies">Research New Technologies</option>
+                
+            </select>
+
+            <button id="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </h1>
+        <div id="main"></div>
+    </center>
+</body>
+</html>
+<script src="task.js"></script>
+<script>
+    document.getElementById("submit").addEventListener("click", function(){
+        let task_select = document.getElementById("task_select").value 
+
+        for(let i=0; i<tasks.length; i++)
+        {
+            if(tasks[i].name === task_select)
+            {
+                document.getElementById("bg").style.background = "none"
+                document.getElementById("bg").style.padding = "0px"
+
+                let main = document.getElementById("main")
+                main.setAttribute("class", "border_main")
+                main.innerHTML = ""
+
+                let div = document.createElement("div")
+                div.setAttribute("class", "main_div")
+
+                let users = JSON.parse(localStorage.getItem("person")) || []
+                let obj = {
+                    Name: tasks[i].manager.name,
+                    Age: tasks[i].manager.age,
+                    Salary: tasks[i].manager.salary,
+                    Passion: tasks[i].manager.passion,
+                    TaskName: tasks[i].name,
+                    Status: tasks[i].status,
+                    DueDate: tasks[i].dueDate
+                };
+                users.push(obj)
+                localStorage.setItem("person", JSON.stringify(users))
+                
+                // left side div 
+                let div_left = document.createElement("div_left")
+                div_left.setAttribute("class", "div_left")
+
+                let img = document.createElement("img")
+                img.setAttribute("class", "img")
+                img.src = tasks[i].manager.image
+
+                let name = document.createElement("h2")
+                name.innerHTML = "<b class = 'text_color'>Name : </b><span class = 'ans_color'>" + tasks[i].manager.name + "</span>"
+
+                let age = document.createElement("h2")
+                age.innerHTML = "<b class = 'text_color'>Age : </b><span class = 'ans_color'>" + tasks[i].manager.age + "</span>"
+
+                let salary = document.createElement("h2")
+                salary.innerHTML = "<b class = 'text_color'>Salary : </b><span class = 'ans_color'>" + tasks[i].manager.salary + "</span>"
+
+                let passion = document.createElement("h2")
+                passion.innerHTML = "<b class = 'text_color'>Passion : </b><span class = 'ans_color'>" + tasks[i].manager.passion + "</span>"
+
+                div_left.append(img, name, age, salary, passion)
+
+                // right side div 
+                let div_right = document.createElement("div_right")
+                div_right.setAttribute("class", "div_right")
+
+                let task_name = document.createElement("h2")
+                task_name.innerHTML = "<b class = 'text_color'>Task : </b><span class = 'ans_color'>" + tasks[i].name + "</span>"
+
+                let description = document.createElement("h2")
+                description.innerHTML = "<b class = 'text_color'>Description : </b><span class = 'ans_color'>" + tasks[i].description + "</span>"
+
+                let status = document.createElement("h2")
+                status.innerHTML = "<b class = 'text_color'>Status : </b><span class = 'ans_color'>" + tasks[i].status + "</span>"
+
+                let dueDate = document.createElement("h2")
+                dueDate.innerHTML = "<b class = 'text_color'>Due Date : </b><span class = 'ans_color'>" + tasks[i].dueDate + "</span>"
+
+                let head = document.createElement("h2")
+                head.innerHTML = "<center><u class = 'chart_color'>Observaton Chart</u></center>"
+
+                let graph_main = document.createElement("div")
+                graph_main.setAttribute("class", "graph_main")
+
+                let graph = document.createElement("div")
+                graph.setAttribute("class", "graph")
+                
+                // Day-1
+                let day_1 = document.createElement("div")
+                day_1.setAttribute("class", "outer_graph")
+                
+                let day_1_height = document.createElement("div")
+                day_1_height.style.height = "0"
+                day_1_height.style.transition = "height 1s ease"
+                day_1_height.style.width = "100%"
+                day_1_height.style.border = "2px solid rgba(75, 192, 192, 1)"
+                day_1_height.style.backgroundColor = "rgba(75, 192, 192, 0.2)"
+                
+                day_1.append(day_1_height)
+
+                // Day-2
+                let day_2 = document.createElement("div")
+                day_2.setAttribute("class", "outer_graph")
+                
+                let day_2_height = document.createElement("div")
+                day_2_height.style.height = "0"
+                day_2_height.style.transition = "height 1s ease"
+                day_2_height.style.width = "100%"
+                day_2_height.style.border = "2px solid rgba(255, 99, 132, 1)"
+                day_2_height.style.backgroundColor = "rgba(255, 99, 132, 0.2)"
+                
+                day_2.append(day_2_height)
+
+                // Day-3
+                let day_3 = document.createElement("div")
+                day_3.setAttribute("class", "outer_graph")
+                
+                let day_3_height = document.createElement("div")
+                day_3_height.style.height = "0"
+                day_3_height.style.transition = "height 1s ease"
+                day_3_height.style.width = "100%"
+                day_3_height.style.border = "2px solid rgba(54, 162, 235, 1)"
+                day_3_height.style.backgroundColor = "rgba(54, 162, 235, 0.2)"
+                
+                day_3.append(day_3_height)
+
+                // Day-4
+                let day_4 = document.createElement("div")
+                day_4.setAttribute("class", "outer_graph")
+                
+                let day_4_height = document.createElement("div")
+                day_4_height.style.height = "0"
+                day_4_height.style.transition = "height 1s ease"
+                day_4_height.style.width = "100%"
+                day_4_height.style.border = "2px solid rgba(255, 206, 86, 1)"
+                day_4_height.style.backgroundColor = "rgba(255, 206, 86, 0.2)"
+                
+                day_4.append(day_4_height)
+
+                graph.append(day_1, day_2, day_3, day_4)
+                graph_main.append(graph)
+                div_right.append(task_name, description, status, dueDate, head, graph_main)
+
+
+                //Bottom
+                let div_edit = document.createElement("div")
+
+                let edit = document.createElement("button")
+                edit.setAttribute("class", "edit_css")
+                edit.innerHTML = "Edit"
+
+                let select_flex = document.createElement("div")
+                select_flex.setAttribute("class", "select_flex")
+                select_flex.style.display = "none"
+
+                let select_h3 = document.createElement("h3")
+                select_h3.innerHTML = "Select Any One : "
+
+                let edit_select = document.createElement("select")
+                edit_select.setAttribute("class", "select")
+                
+                let input_flex = document.createElement("div")
+                input_flex.setAttribute("class", "input_flex")
+                input_flex.style.display = "none"
+
+                let edit_input = document.createElement("input")
+                edit_input.setAttribute("class", "edit_input")
+                edit_input.placeholder = "Enter Updated Text"
+
+                let update = document.createElement("button")
+                update.innerHTML = "Update"
+                update.setAttribute("class", "update_btn")
+
+                edit.addEventListener("click", function() {
+                    select_flex.style.display = "flex"
+                    select_flex.style.flexDirection = "row"
+                    select_flex.style.justifyContent = "space-between"
+                    select_flex.style.alignItems = "center"
+                    select_flex.style.gap = "20px"
+
+                    edit_select.innerHTML = ""
+                    
+                    let option = document.createElement("option")
+                    option.innerHTML = "Select Appropriate Option"
+                    option.value = "Select Appropriate Option"
+
+                    let age_option = document.createElement("option")
+                    age_option.innerHTML = "Age"
+                    age_option.value = "Age"
+
+                    let salary_option = document.createElement("option")
+                    salary_option.innerHTML = "Salary"
+                    salary_option.value = "Salary"
+
+                    let passion_option = document.createElement("option")
+                    passion_option.innerHTML = "Passion"
+                    passion_option.value = "Passion"
+
+                    let status_option = document.createElement("option")
+                    status_option.innerHTML = "Status"
+                    status_option.value = "Status"
+
+                    let dueDate_option = document.createElement("option")
+                    dueDate_option.innerHTML = "DueDate"
+                    dueDate_option.value = "DueDate"
+
+                    edit_select.append(option, age_option, salary_option, passion_option, status_option, dueDate_option)
+                })
+
+                edit_select.addEventListener("change", function() {
+                input_flex.style.display = "flex"
+                input_flex.style.flexDirection = "row"
+                input_flex.style.alignItems = "center"
+                input_flex.style.gap = "20px"
+
+                    switch(edit_select.value) 
+                    {
+                        case "Age":
+                            edit_input.value = age.innerText.replace('Age : ', '')
+                            break
+                        case "Salary":
+                            edit_input.value = salary.innerText.replace('Salary : ', '')
+                            break
+                        case "Passion":
+                            edit_input.value = passion.innerText.replace('Passion : ', '')
+                            break
+                        case "Status":
+                            edit_input.value = status.innerText.replace('Status : ', '')
+                            break
+                        case "DueDate":
+                            edit_input.value = dueDate.innerText.replace('Due Date : ', '')
+                            break
+                        default:
+                            edit_input.value = ""
+                    }
+                })
+
+                update.addEventListener("click", function() 
+                {
+                    switch(edit_select.value) 
+                    {
+                        case "Age":
+                            age.innerHTML = `<b class="color">Age : </b> ${edit_input.value}`
+                            tasks[i].manager.age = edit_input.value
+                            break
+                        case "Salary":
+                            salary.innerHTML = `<b class="color">Salary : </b> ${edit_input.value}`
+                            tasks[i].manager.salary = edit_input.value
+                            break
+                        case "Passion":
+                            passion.innerHTML = `<b class="color">Passion : </b> ${edit_input.value}`
+                            tasks[i].manager.passion = edit_input.value
+                            break
+                        case "Status":
+                            status.innerHTML = `<b class="color">Status : </b> ${edit_input.value}`
+                            tasks[i].status = edit_input.value
+                            break
+                        case "DueDate":
+                            dueDate.innerHTML = `<b class="color">Due Date : </b> ${edit_input.value}`
+                            tasks[i].dueDate = edit_input.value
+                            break
+                    }
+
+                    select_flex.style.display = "none"
+                    input_flex.style.display = "none"
+                    
+                    jsonData()
+                })
+                
+                select_flex.append(select_h3, edit_select)
+                input_flex.append(edit_input, update)
+                div_edit.append(edit, select_flex, input_flex)
+
+                div.append(div_left, div_right)
+                main.append(div, div_edit)
+
+                day_1_height.offsetHeight
+                day_2_height.offsetHeight
+                day_3_height.offsetHeight
+                day_4_height.offsetHeight
+
+                day_1_height.style.height = tasks[i].activity.day_1 + "px"
+                day_2_height.style.height = tasks[i].activity.day_2 + "px"
+                day_3_height.style.height = tasks[i].activity.day_3 + "px"
+                day_4_height.style.height = tasks[i].activity.day_4 + "px"
+
+                jsonData()
+            }
+        }
+    })
+
+    // function jsonData() 
+    // {
+    //     let tasks = JSON.parse(localStorage.getItem("Task")) || []
+
+    //     localStorage.setItem("Task", JSON.stringify(tasks));
+    //     console.log(JSON.parse(localStorage.getItem("Task")));
+    // }
+
+    // function jsonData(task) {
+    //     let tasks = JSON.parse(localStorage.getItem("Task")) || [];
+
+    //     let obj = {
+    //         Name: task.manager.name,
+    //         Age: task.manager.age,
+    //         Salary: task.manager.salary,
+    //         Passion: task.manager.passion,
+    //         TaskName: task.name,
+    //         Status: task.status,
+    //         DueDate: task.dueDate
+    //     };
+
+    //     tasks.push(obj);
+    //     localStorage.setItem("Task", JSON.stringify(tasks));
+
+    //     console.log(JSON.stringify(tasks, null, 2));
+    // }
+
+</script>
