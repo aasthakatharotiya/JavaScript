@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+</head>
+<style>
+    .flex_div{
+        display: flex;
+        justify-content: space-between;
+    }
+    #text_left,
+    #text_right{
+        width: 50%;
+        text-align: left;
+        /* border: 2px solid; */
+    }
+    .ans{
+        font-weight: lighter;
+        letter-spacing: 2px;
+        font-size: 22px;
+    }
+    .head_left{
+        color: rgb(17, 0, 255);
+        font-size: 27px;
+    }
+    .head_right{
+        color: rgb(255, 0, 0);
+        font-size: 27px;
+    }
+</style>
+<body>
+    <center>
+        <br>
+        <h1>----------------- All Methods -----------------</h1>
+    </center>
+    <center class="flex_div">
+        <h1 id="text_left"></h1>
+        <h1 id="text_right"></h1>
+    </center>
+</body>
+</html>
+
+<script>
+
+    // push
+
+    let arr1 = ["Aastha" , "Mansi" , "Komal"]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Push Operation : </span><span class = 'ans'>" + arr1 + "</span>"
+    arr1.push("Bhakti" , "Harmi")
+
+    console.log(arr1)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Push Operation : </span><span class = 'ans'>" + arr1 + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+    
+    // pop
+
+    let arr2 = ["Aastha" , "Harmi" , "Komal", "Hetvi"]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Pop Operation : </span><span class = 'ans'>" + arr2 + "</span>"
+    arr2.pop()
+
+    console.log(arr2)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Pop Operation : </span><span class = 'ans'>" + arr2 + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+    
+
+    // slice
+
+    let a = [1 , 2 , 3 , 4 , 5]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Slice Operation : </span><span class = 'ans'>" + a + "</span>"
+    let ans_slice = a.slice(1, 4)
+
+    console.log(ans_slice)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Slice Operation : </span><span class = 'ans'>" + ans_slice + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+
+    // splice
+
+    let numArr = [10, 20, 30, 40]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Splice Operation : </span><span class = 'ans'>" + numArr + "</span>"
+    
+    numArr.splice(3) // display index 3 = 0 to 2
+    numArr.splice(1, 1, 3, 4, 5) // index, delete_element, add_element, ...
+
+    console.log(numArr)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Splice Operation : </span><span class = 'ans'>" + numArr + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+    
+    let strArr = ["Amit", "Sumit", "Anil"]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Splice Operation : </span><span class = 'ans'>" + strArr + "</span>"
+    strArr.splice(1, 1, "Geeks1", "Geeks2")
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Splice Operation : </span><span class = 'ans'>" + strArr + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+    
+    // shift
+
+    let arr4 = [10, 20, 30, 40, 50]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Shift Operation : </span><span class = 'ans'>" + arr4 + "</span>"
+
+    arr4.shift()
+
+    console.log(arr4)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Shift Operation : </span><span class = 'ans'>" + arr4 + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+    
+    // ushift
+
+    let arr5 = ["Prince", "Aastha"]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Unshift Operation : </span><span class = 'ans'>" + arr5 + "</span>"
+
+    arr5.unshift("Ricky")
+
+    console.log(arr5)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Unshift Operation : </span><span class = 'ans'>" + arr5 + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+    
+    // map
+        
+    let arr7 = [4, 9, 16, 25]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Map Method : </span><span class = 'ans'>" + arr7 + "</span>"
+
+    let squareRoots = arr7.map(Math.sqrt);
+
+    console.log(squareRoots)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Map Method : </span><span class = 'ans'>" + squareRoots + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+    
+    // filter
+
+    let ages = [20, 30, 16, 40]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Filter Method : </span><span class = 'ans'>" + ages + "</span>"
+    
+    let result = ages.filter(check)
+    function check(age) 
+    {
+        return age >= 18
+    }
+
+    console.log(result)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Filter Method : </span><span class = 'ans'>" + result + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+    
+    // reduse
+
+    let arr6 = [88, 50, 25, 10]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Reduce Method : </span><span class = 'ans'>" + arr6 + "</span>"
+
+    let sub = arr6.reduce(task)
+    function task(total, num) {
+        return total - num
+    }
+
+    console.log(sub)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Reduce Method : </span><span class = 'ans'>" + sub + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+    
+    // sort
+
+    let fruits = ["Cherry", "Orange", "Apple", "Mango"]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Sort Operation : </span><span class = 'ans'>" + fruits + "</span>"
+
+    let fruit_ans = fruits.sort()
+
+    console.log(fruit_ans)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Sort Operation : </span><span class = 'ans'>" + fruit_ans + "</span>"
+
+    document.getElementById("text_left").innerHTML += "<br>"
+    document.getElementById("text_right").innerHTML += "<br>"
+    
+    // reverse
+
+    let arr8 = [1, 2, 3, 4, 5]
+    document.getElementById("text_left").innerHTML += "<span class = 'head_left'>Before Reverse Operation : </span><span class = 'ans'>" + arr8 + "</span>"
+    
+    arr8.reverse()
+
+    console.log(arr8)
+    document.getElementById("text_right").innerHTML += "<span class = 'head_right'>After Reverse Operation : </span><span class = 'ans'>" + arr8 + "</span>"
+
+
+
+</script>
